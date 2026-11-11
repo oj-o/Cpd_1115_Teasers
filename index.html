@@ -39,23 +39,26 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
 .stage canvas{position:absolute;inset:0;width:100%;height:100%}
 .ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 58%,rgba(0,0,0,.55) 100%)}
-.grain{position:absolute;inset:-50%;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.paperfx{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.35;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='.035' numOctaves='4'/><feColorMatrix values='0 0 0 0 .95 0 0 0 0 .88 0 0 0 0 .75 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23p)'/></svg>")}
+.grain{position:absolute;inset:-50%;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 .fade{position:absolute;inset:0;background:#000;pointer-events:none}
 .flash{position:absolute;inset:0;background:#fff;pointer-events:none;opacity:0}
 .bug{position:absolute;left:2.6em;top:2.2em;font-size:1.2em;letter-spacing:.2em;color:var(--mist-dim);opacity:.8}
 .bug i{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:var(--seal);margin-right:.5em;vertical-align:.05em}
 .bug-r{left:auto;right:2.6em}
 /* 지문 */
-.dir{position:absolute;left:2.6em;top:5.2em;background:rgba(4,9,10,.72);padding:.25em .7em;border-left:3px solid var(--seal);font-family:var(--serif);font-weight:700;font-size:1.9em;color:var(--jade);opacity:0;max-width:60%;text-shadow:0 0 .5em #000}
+.dir{position:absolute;left:2.6em;top:5.2em;background:#d9cfae;padding:.3em .8em .35em;font-family:var(--serif);font-weight:800;font-size:1.9em;color:#3a2d1e;opacity:0;max-width:60%;box-shadow:.15em .2em 0 rgba(0,0,0,.45);transform-origin:left center}
+.dir::before{content:"";position:absolute;left:-.5em;top:-.35em;width:2.2em;height:.8em;background:rgba(230,220,180,.75);transform:rotate(-18deg)}
 /* 자막 */
 .subt{position:absolute;left:0;right:0;bottom:6%;display:flex;flex-direction:column;align-items:center;gap:.6em;opacity:0}
 .subt .who{font-size:1.7em;color:var(--mist-dim);letter-spacing:.1em;display:flex;gap:.6em;align-items:center}
 .subt .who b{font-family:var(--display);font-weight:400;color:var(--mist);font-size:1.25em;letter-spacing:0}
-.subt .line{font-family:var(--serif);font-weight:800;font-size:4.4em;color:#f3f7f4;background:rgba(5,10,10,.62);padding:.12em .55em .2em;border-radius:.15em;text-align:center;max-width:86%;text-wrap:balance}
+.subt .line{font-family:var(--serif);font-weight:800;font-size:4.2em;color:#1d2622;background:#ece6d4;padding:.14em .6em .22em;text-align:center;max-width:86%;text-wrap:balance;box-shadow:.12em .14em 0 rgba(0,0,0,.55);clip-path:polygon(0 4%,3% 0,40% 3%,72% 0,100% 5%,99% 60%,100% 96%,62% 100%,30% 97%,1% 100%)}
+.subt .who{background:#1d2622;padding:.2em .6em;box-shadow:.1em .12em 0 rgba(0,0,0,.5)}
 /* 카드 */
 .k{text-align:center;display:flex;flex-direction:column;gap:1.4em;align-items:center;max-width:80%}
 .k .eb{font-size:1.6em;letter-spacing:.35em;color:var(--jade)}
-.k .main{font-family:var(--display);font-size:9em;line-height:1.05;color:var(--mist);text-shadow:0 0 .35em rgba(127,184,168,.3)}
+.k .main{font-family:var(--display);font-size:9em;line-height:1.05;color:#ece6d4;text-shadow:.04em .05em 0 rgba(0,0,0,.7)}
 .k .sub{font-family:var(--serif);font-weight:700;font-size:3.2em;color:var(--mist-dim)}
 /* 문서 */
 .doc{position:relative;width:56%;background:var(--paper);color:var(--paper-ink);padding:2.8em 3.4em 3.2em;box-shadow:0 2em 5em rgba(0,0,0,.7);font-family:var(--serif)}
@@ -101,7 +104,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
 /* 타이틀 */
 .fin{text-align:center;display:flex;flex-direction:column;align-items:center;gap:2em;position:relative}
 .fin .eb{font-size:1.7em;letter-spacing:.4em;color:var(--jade)}
-.fin .logo{font-family:var(--display);font-size:9.6em;line-height:1.08;color:#f1f5f2;text-shadow:0 0 .3em rgba(127,184,168,.35)}
+.fin .logo{font-family:var(--display);font-size:9.6em;line-height:1.08;color:#ece6d4;text-shadow:.04em .05em 0 rgba(0,0,0,.7)}
 .fin .logo span{color:var(--seal)}
 .fin .by{font-family:var(--serif);font-weight:800;font-size:2.6em;color:var(--mist-dim)}
 .fin .tag{font-size:2.1em;color:var(--mist);border-top:1px solid var(--line);padding-top:1em}
@@ -120,6 +123,12 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
 .track input{width:100%;margin:0;accent-color:var(--seal)}
 .marks{position:absolute;left:0;right:0;top:3px;height:6px;pointer-events:none}
 .marks i{position:absolute;width:1px;height:6px;background:var(--line)}
+.dl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:12px 14px;background:var(--ink-2)}
+.dl h2{margin:0 12px 0 0;font-size:13px;letter-spacing:.16em;color:var(--mist-dim);font-weight:400}
+.dl a{color:var(--mist);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:8px 12px;font-size:14px;display:flex;flex-direction:column;background:var(--ink)}
+.dl a small{font-size:11px;color:var(--mist-dim)}
+.dl a:hover{border-color:var(--jade)}
+.dl a:focus-visible{outline:2px solid var(--jade);outline-offset:2px}
 .scenes{border-top:1px solid var(--line);padding-top:12px}
 .scenes h2{font-size:13px;letter-spacing:.16em;color:var(--mist-dim);font-weight:400;margin:0 0 8px}
 .scenes ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px 16px}
@@ -138,7 +147,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
 <body>
 <div class="wrap">
   <header>
-    <div class="brand"><small>강유선 작 · 연극 예고편</small><h1>저승공무원으로 취업했습니다!!!</h1></div>
+    <div class="brand"><small>강유선 작 · 연극 예고편 · 스톱모션</small><h1>저승공무원으로 취업했습니다!!!</h1></div>
     <div class="tabs" role="group" aria-label="예고편 길이">
       <button id="v1" data-v="v1" aria-pressed="true"><b>1분</b><span>티저</span></button>
       <button id="v3" data-v="v3" aria-pressed="false"><b>3분</b><span>메인 예고편</span></button>
@@ -152,7 +161,8 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
     <div class="dir" id="dir"></div>
     <div class="subt" id="subt"><div class="who" id="who"></div><div class="line" id="line"></div></div>
     <div class="vig"></div>
-    <div class="grain"></div>
+    <div class="paperfx"></div>
+    <div class="grain" id="grain"></div>
     <div class="bug"><i></i>저승관리청 · 사망승인과</div>
     <div class="bug bug-r" id="bugR">제 4444 호</div>
     <div class="flash" id="flash"></div>
@@ -168,11 +178,19 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
     <button id="fs">전체 화면</button>
   </div>
 
+  <section class="dl" aria-label="다운로드">
+    <h2>다운로드</h2>
+    <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/teaser_1min.mp4" target="_blank" rel="noopener">1분 티저<small>MP4 · 1280×720 · 소리 포함</small></a>
+    <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/trailer_3min.mp4" target="_blank" rel="noopener">3분 메인 예고편<small>MP4 · 1280×720 · 소리 포함</small></a>
+    <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/trailer_5min.mp4" target="_blank" rel="noopener">5분 확장판<small>MP4 · 1280×720 · 소리 포함</small></a>
+    <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/index.html" target="_blank" rel="noopener">재생기 HTML<small>파일 하나로 오프라인 재생</small></a>
+  </section>
+
   <section class="scenes">
     <h2 id="sceneHead">컷 구성</h2>
     <ol id="list"></ol>
   </section>
-  <p class="note">스페이스바 재생/일시정지, 좌우 화살표 5초 이동. 음악과 효과음(전화벨·발신음·종료음·방송음·도장·서류·발소리·박수)은 대본의 음향 큐에 맞춰 브라우저에서 실시간 합성됩니다. 영상 파일이 필요하면 전체 화면 재생을 화면 녹화하세요.</p>
+  <p class="note">스페이스바 재생/일시정지, 좌우 화살표 5초 이동. 음악과 효과음(전화벨·발신음·종료음·방송음·도장·서류·발소리·박수)은 대본의 음향 큐에 맞춰 브라우저에서 실시간 합성됩니다. 위 다운로드 링크는 GitHub 저장소의 MP4 파일로 연결됩니다.</p>
 </div>
 
 <script>
@@ -334,6 +352,7 @@ function buildVersion(k){const v=V[k];const base=v.ids.reduce((a,id)=>a+SH[id].d
    4. 캔버스 무대 — 배경(저승관리청/장례식장/회의실/원룸/저승행 승강장)
    ========================================================= */
 const WW=1600,WH=900,FL=770;
+const SFPS=12;let FR=0; /* 스톱모션 프레임 번호 */
 const cv=$('cv'),c=cv.getContext('2d');let PW=0,PH=0,DPR=1;
 function rr(x,y,w,ht,r){c.beginPath();if(c.roundRect)c.roundRect(x,y,w,ht,r);else c.rect(x,y,w,ht)}
 function circ(x,y,r){c.beginPath();c.arc(x,y,r,0,Math.PI*2)}
@@ -469,11 +488,12 @@ function pose(act,t,a){const P={y:Math.sin(t*2)*2,dx:0,la:[.12,.08],ra:[.12,.08]
 
 function drawFig(a,t,d,face,bg){
   if(a.who==='cat')return drawCat(a.x*WW,t);
-  const C=COS[a.who];let px=a.x,walking=false;
+  const C=COS[a.who];let px=a.x,walking=false;if(!C)return;
   if(a.x2!==null){const p=clamp(t/(d*.7));px=lerp(a.x,a.x2,p);walking=p<1}
   const act=walking?'walk':a.act;const P=pose(act,t,a);if(face<0){const tmp=P.la;P.la=P.ra;P.ra=tmp}
   const sit=a.desk;const X=px*WW+P.dx,Y=FL+P.y+(sit?62:0);
-  c.save();c.translate(X,Y);
+  c.save();c.translate(X+(rnd(FR*13+a.x*97)-.5)*5,Y+(rnd(FR*17+a.x*53)-.5)*3);c.rotate((rnd(FR*7+a.x*31)-.5)*.018);
+  c.shadowColor='rgba(0,0,0,.5)';c.shadowOffsetX=7;c.shadowOffsetY=5;c.shadowBlur=4;
   if(!sit){if(C.live){c.fillStyle='rgba(0,0,0,.45)';c.beginPath();c.ellipse(0,4-P.y,70,14,0,0,Math.PI*2);c.fill()}
     else glow(0,4-P.y,90,'rgba(127,184,168,.22)')}
   if(C.live)glow(0,-200,190,'rgba(255,200,150,.06)');
@@ -517,7 +537,7 @@ function drawFig(a,t,d,face,bg){
   if(C.hat==='gat'){c.fillStyle='#050506';c.fillRect(-24,-74,48,44);c.beginPath();c.ellipse(0,-30,78,11,0,0,Math.PI*2);c.fill();c.strokeStyle='#3a1e1e';c.lineWidth=2;c.beginPath();c.moveTo(-30,-26);c.lineTo(-18,36);c.moveTo(30,-26);c.lineTo(18,36);c.stroke()}
   c.restore();c.restore();
   c.restore();
-  if(sit)deskFront(X,bg)}
+  if(sit){c.save();c.shadowColor='rgba(0,0,0,.45)';c.shadowOffsetY=-4;c.shadowBlur=6;deskFront(X,bg);c.restore()}}
 function hair(C){c.fillStyle=C.hair;switch(C.hs){
   case 'bob':c.beginPath();c.arc(0,-4,37,Math.PI,0);c.lineTo(37,18);c.lineTo(28,18);c.lineTo(26,-10);c.lineTo(-26,-10);c.lineTo(-28,18);c.lineTo(-37,18);c.closePath();c.fill();break;
   case 'slick':c.beginPath();c.arc(0,-6,35,Math.PI*1.05,Math.PI*1.95);c.lineTo(30,-18);c.lineTo(-30,-18);c.closePath();c.fill();break;
@@ -583,7 +603,7 @@ function buildOverlay(s,root){const o=s.ov;if(!o)return ()=>{};
    음악1(밝은 음악) · 수신 벨소리 · 통화 발신음 · 통화 종료음 · 방송음 · 도장 · 서류 · 암전
    ========================================================= */
 const A={ctx:null,on:true,mood:'none',step:0,next:0,
-  init(){if(this.ctx)return true;const C=window.AudioContext||window.webkitAudioContext;if(!C)return false;const x=this.ctx=new C();
+  init(oc){if(this.ctx&&!oc)return true;const C=window.AudioContext||window.webkitAudioContext;if(!C&&!oc)return false;const x=this.ctx=oc||new C();
     this.master=x.createGain();this.master.gain.value=.9;this.master.connect(x.destination);
     this.mus=x.createGain();this.mus.gain.value=0;this.mus.connect(this.master);this.fx=x.createGain();this.fx.gain.value=1;this.fx.connect(this.master);
     // 지속음: 드론(저승), 바람, 긴장 트레몰로
@@ -599,7 +619,7 @@ const A={ctx:null,on:true,mood:'none',step:0,next:0,
   osc(type,f,t,peak,dec,dest,f2,att=.004){const o=this.ctx.createOscillator();o.type=type;o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+dec);this.env(o,t,peak,att,dec,dest);o.start(t);o.stop(t+att+dec+.05)},
   noise(t,dur,peak,type,freq,q=1,dest,f2){const s=this.ctx.createBufferSource();s.buffer=this.noiseBuf(dur+.05);const f=this.ctx.createBiquadFilter();f.type=type;f.frequency.setValueAtTime(freq,t);if(f2)f.frequency.exponentialRampToValueAtTime(f2,t+dur);f.Q.value=q;s.connect(f);this.env(f,t,peak,.003,dur,dest);s.start(t)},
   dual(f1,f2,t,dur,vol=.06){[f1,f2].forEach(f=>{const o=this.ctx.createOscillator();o.frequency.value=f;const g=this.ctx.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.01);g.gain.setValueAtTime(vol,t+dur-.01);g.gain.linearRampToValueAtTime(0,t+dur);o.connect(g).connect(this.fx);o.start(t);o.stop(t+dur+.02)})},
-  play(n){if(!this.on||!this.ctx)return;const t=this.ctx.currentTime+.01,m=this.midi;
+  play(n,at){if(!this.on||!this.ctx)return;const t=(at??this.ctx.currentTime)+.01,m=this.midi;
     switch(n){
       case 'ring':for(let r=0;r<2;r++)[79,83,86,83,79,83,86,91].forEach((k,i)=>{const tt=t+r*1.15+i*.12;this.osc('sine',m(k),tt,.14,.18);this.osc('sine',m(k+12),tt,.04,.08)});break;
       case 'dial':this.dual(440,480,t,1);this.dual(440,480,t+3,1);break;
@@ -625,7 +645,7 @@ const A={ctx:null,on:true,mood:'none',step:0,next:0,
     }},
   /* 무드별 음악 패턴 (16분음표 스텝) */
   BPM:{bright:116,comic:104,warm:76,eerie:60,tension:132,none:100},
-  setMood(md,playing){if(!this.ctx)return;const x=this.ctx.currentTime;const live=this.on&&playing;
+  setMood(md,playing,at){if(!this.ctx)return;const x=at??this.ctx.currentTime;const live=this.on&&playing;
     if(md!==this.mood){this.mood=md;this.step=0;this.next=x+.05}
     this.mus.gain.setTargetAtTime(live?.55:0,x,.25);
     this.droneG.gain.setTargetAtTime(live&&(md==='eerie'||md==='tension')?.06:0,x,.6);
@@ -675,18 +695,20 @@ function facing(a,list,t,d){if(a.x2!==null&&t<d*.7)return Math.sign(a.x2-a.x);le
 function drawStage(s,l,gt){c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,PW,PH);const sc=PW/WW;
   let z=1+l/s.d*.03,fx=800,fy=470,sx=0,sy=0;const xs=s.actors.filter(a=>a.who!=='cat').map(a=>a.x);if(xs.length)fx=xs.reduce((p,q)=>p+q,0)/xs.length*WW;
   if(s.cam==='in')z=1+ease(l/s.d)*.14;if(s.cam==='shake'){z=1.06;const k=Math.max(0,1-l/.9);sx=(Math.random()-.5)*26*k;sy=(Math.random()-.5)*26*k}
-  const cx0=lerp(800,fx,z>1.05?.6:.25);c.setTransform(sc*z,0,0,sc*z,PW/2-cx0*sc*z+sx*sc,PH/2-fy*sc*z+sy*sc);
+  const cx0=lerp(800,fx,z>1.05?.6:.25);sx+=(rnd(FR*3)-.5)*4;sy+=(rnd(FR*3+1)-.5)*4;c.setTransform(sc*z,0,0,sc*z,PW/2-cx0*sc*z+sx*sc,PH/2-fy*sc*z+sy*sc);
   (BG[s.bg]||BG.void)(gt);
   const sorted=[...s.actors].sort((a,b)=>(a.desk?1:0)-(b.desk?1:0));sorted.forEach(a=>drawFig(a,l,s.d,facing(a,s.actors,l,s.d),s.bg));
   if(s.bg!=='room')drawMotes(gt);
+  c.setTransform(1,0,0,1,0,0);c.fillStyle=`rgba(${rnd(FR+5)>.5?'255,200,140':'0,0,0'},${.03+rnd(FR+9)*.05})`;c.fillRect(0,0,PW,PH);
   if(s.ov&&s.ov!=='tally'&&!s.ov.startsWith('call:')){c.setTransform(1,0,0,1,0,0);c.fillStyle=s.bg==='void'?'rgba(0,0,0,0)':'rgba(3,7,8,.55)';c.fillRect(0,0,PW,PH)}}
-function render(){const t=Math.min(st.t,st.total-1e-4);const i=sceneAt(t);const s=st.shots[i];if(i!==st.idx)enterShot(i);
-  const l=t-st.starts[i];drawStage(s,l,t);st.upd(l);
+function render(){const tr=Math.min(st.t,st.total-1e-4);const i=sceneAt(tr);const s=st.shots[i];if(i!==st.idx)enterShot(i);
+  FR=Math.floor(tr*SFPS);const t=Math.max(st.starts[i],FR/SFPS);const l=t-st.starts[i];const lr=tr-st.starts[i];drawStage(s,l,t);st.upd(l);
+  const j=(k,a)=>(rnd(FR*11+k)-.5)*a;ov.style.transform=`translate(${j(1,.3)}em,${j(2,.3)}em) rotate(${j(3,.5)}deg)`;dirEl.style.rotate=`${-1.2+j(4,.8)}deg`;$('line').style.transform=`rotate(${(rnd(i*7)-.5)*2.4+j(5,.6)}deg) translate(${j(6,.15)}em,0)`;$('grain').style.transform=`translate(${j(7,40)}px,${j(8,40)}px)`;
   dirEl.style.opacity=s.di?clamp((l-.2)/.5)*clamp((s.d-l)/.4):0;
   subt.style.opacity=s.s?clamp((l-.35)/.35)*clamp((s.d-l)/.3):0;subt.style.transform=`translateY(${(1-ease((l-.35)/.4))*.8}em)`;
   let o=0;if(l<.3)o=1-l/.3;if(s.d-l<.3&&i<st.shots.length-1)o=Math.max(o,1-(s.d-l)/.3);if(i===st.shots.length-1&&s.d-l<1)o=1-(s.d-l);fade.style.opacity=o;
-  if(st.playing){const pl=st.prev-st.starts[i];s.fx.forEach(([at,n])=>{if(pl<at&&l>=at)A.play(n)})}
-  st.prev=t;$('time').textContent=`${fmt(st.t)} / ${fmt(st.total)}`;if(!dragging)$('seek').value=Math.round(st.t/st.total*1000)}
+  if(st.playing){const pl=st.prev-st.starts[i];s.fx.forEach(([at,n])=>{if(pl<at&&lr>=at)A.play(n)})}
+  st.prev=tr;$('time').textContent=`${fmt(st.t)} / ${fmt(st.total)}`;if(!dragging)$('seek').value=Math.round(st.t/st.total*1000)}
 let last=0,dragging=false;
 function loop(ts){const dt=last?(ts-last)/1000:0;last=ts;if(st.playing){st.t+=Math.min(dt,.1);if(st.t>=st.total){st.t=st.total;pause()}}A.tick(st.playing);if(PW)render();requestAnimationFrame(loop)}
 function play(){if(A.on&&A.init())A.ctx.resume();if(st.t>=st.total)seek(0);st.playing=true;st.prev=st.t-1e-4;$('cover').hidden=true;$('play').textContent='일시정지';if(st.idx>=0)A.setMood(st.shots[st.idx].m,true)}
@@ -694,6 +716,17 @@ function pause(){st.playing=false;$('play').textContent=st.t>=st.total?'다시 �
 function seek(t){st.t=clamp(t,0,st.total);st.prev=st.t}
 function toggle(){st.playing?pause():play()}
 
+/* 영상 내보내기용: 오디오를 오프라인으로 합성하고, 임의 시점의 프레임을 그린다 */
+async function renderAudio(k){const shots=buildVersion(k);const total=shots.reduce((a,s)=>a+s.d,0);const sr=44100;
+  const off=new OfflineAudioContext(1,Math.ceil(sr*total),sr);const keep={ctx:A.ctx,on:A.on,mood:A.mood,step:A.step,next:A.next,master:A.master,mus:A.mus,fx:A.fx,droneG:A.droneG,windG:A.windG,tremG:A.tremG};
+  A.ctx=null;A.on=true;A.mood='none';A.init(off);let t0=0;
+  shots.forEach(s=>{A.setMood(s.m,true,t0);const end=t0+s.d;while(A.next<end){const spb=60/A.BPM[A.mood]/4;A.stepNote(A.mood,A.step,A.next,spb);A.next+=spb;A.step++}
+    s.fx.forEach(([at,n])=>A.play(n,t0+at));t0=end});
+  A.master.gain.setValueAtTime(.9,Math.max(0,total-1.2));A.master.gain.linearRampToValueAtTime(0,total);
+  const buf=await off.startRendering();Object.assign(A,keep);
+  const d=buf.getChannelData(0);const pcm=new Int16Array(d.length);for(let i=0;i<d.length;i++)pcm[i]=Math.max(-1,Math.min(1,d[i]))*32767;
+  const u8=new Uint8Array(pcm.buffer);let bin='';for(let i=0;i<u8.length;i+=0x8000)bin+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(bin)}
+function renderFrame(k,t){if(st.v!==k){setVersion(k)}$('cover').hidden=true;seek(t);render()}
 const stage=$('stage');
 new ResizeObserver(()=>{const r=stage.getBoundingClientRect();stage.style.setProperty('--u',(r.width/100)+'px');DPR=Math.min(2,devicePixelRatio||1);PW=cv.width=Math.round(r.width*DPR);PH=cv.height=Math.round(r.height*DPR)}).observe(stage);
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setVersion(b.dataset.v));
