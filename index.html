@@ -141,6 +141,24 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
 .scenes li span em{font-style:normal;color:var(--jade)}
 .note{font-size:12.5px;color:var(--mist-dim);line-height:1.6;margin:0}
 @media (max-width:560px){.tabs button{min-width:0;flex:1}}
+/* 릴스(9:16) */
+.reelhead{display:none}
+.stage.vert{aspect-ratio:9/16;width:min(100%,420px);margin:0 auto}
+.stage.vert:fullscreen{width:auto;height:100vh;max-height:none}
+.vert .bug{display:none}
+.vert .reelhead{display:block;position:absolute;left:0;right:0;top:0;padding:6% 0 2.4em;background:linear-gradient(#0b1214 72%,rgba(11,18,20,0));text-align:center;font-size:1.5em;letter-spacing:.12em;color:#d9cfae}
+.vert .reelhead b{display:block;font-family:var(--display);font-weight:400;letter-spacing:0;font-size:1.7em;color:#ece6d4;margin-top:.2em;text-shadow:.05em .06em 0 rgba(0,0,0,.7)}
+.vert .subt{bottom:24%}
+.vert .subt .line{font-size:3.6em;max-width:90%}
+.vert .doc{width:88%;padding:2em 2.2em 2.4em}
+.vert .doc h3{font-size:2.5em}
+.vert .doc .row{font-size:1.9em}
+.vert .cd .num{font-size:5.6em}
+.vert .imp .w{font-size:12em}
+.vert .fin .logo{font-size:5.6em}
+.vert .fin .tag{font-size:1.7em}
+.vert .fin .stamp{right:-1em;top:-8em}
+.vert .call{top:19%;right:1.4em}
 @media (prefers-reduced-motion:reduce){.grain{display:none}}
 </style>
 </head>
@@ -152,6 +170,8 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
       <button id="v1" data-v="v1" aria-pressed="true"><b>1분</b><span>티저</span></button>
       <button id="v3" data-v="v3" aria-pressed="false"><b>3분</b><span>메인 예고편</span></button>
       <button id="v5" data-v="v5" aria-pressed="false"><b>5분</b><span>확장판 예고편</span></button>
+      <button id="r1" data-v="r1" aria-pressed="false"><b>릴스 1</b><span>15초 · 세로</span></button>
+      <button id="r2" data-v="r2" aria-pressed="false"><b>릴스 2</b><span>15초 · 세로</span></button>
     </div>
   </header>
 
@@ -163,6 +183,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
     <div class="vig"></div>
     <div class="paperfx"></div>
     <div class="grain" id="grain"></div>
+    <div class="reelhead">연극 <b>저승공무원으로 취업했습니다!!!</b></div>
     <div class="bug"><i></i>저승관리청 · 사망승인과</div>
     <div class="bug bug-r" id="bugR">제 4444 호</div>
     <div class="flash" id="flash"></div>
@@ -183,6 +204,8 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
     <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/teaser_1min.mp4" target="_blank" rel="noopener">1분 티저<small>MP4 · 1280×720 · 소리 포함</small></a>
     <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/trailer_3min.mp4" target="_blank" rel="noopener">3분 메인 예고편<small>MP4 · 1280×720 · 소리 포함</small></a>
     <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/trailer_5min.mp4" target="_blank" rel="noopener">5분 확장판<small>MP4 · 1280×720 · 소리 포함</small></a>
+    <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/reel1_15s.mp4" target="_blank" rel="noopener">릴스 1 · 반전<small>MP4 · 1080×1920 · 15초</small></a>
+    <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/reel2_15s.mp4" target="_blank" rel="noopener">릴스 2 · 저승 입사<small>MP4 · 1080×1920 · 15초</small></a>
     <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/index.html" target="_blank" rel="noopener">재생기 HTML<small>파일 하나로 오프라인 재생</small></a>
   </section>
 
@@ -190,7 +213,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
     <h2 id="sceneHead">컷 구성</h2>
     <ol id="list"></ol>
   </section>
-  <p class="note">버전 2026-11-12b · 클레이 스톱모션(초당 8컷). 스페이스바 재생/일시정지, 좌우 화살표 5초 이동. 음악과 효과음(전화벨·발신음·종료음·방송음·도장·서류·발소리·박수)은 대본의 음향 큐에 맞춰 브라우저에서 실시간 합성됩니다. 위 다운로드 링크는 GitHub 저장소의 MP4 파일로 연결됩니다.</p>
+  <p class="note">버전 2026-11-12c · 클레이 스톱모션(초당 8컷) · 화면 흔들림 없음 · 릴스 2편. 스페이스바 재생/일시정지, 좌우 화살표 5초 이동. 음악과 효과음(전화벨·발신음·종료음·방송음·도장·서류·발소리·박수)은 대본의 음향 큐에 맞춰 브라우저에서 실시간 합성됩니다. 위 다운로드 링크는 GitHub 저장소의 MP4 파일로 연결됩니다.</p>
 </div>
 
 <script>
@@ -312,10 +335,26 @@ sh('cast','void',10,[],{ov:'cast',m:'bright'});
 sh('fin','void',6,[],{ov:'fin',fx:[[1.6,'stamp']]});
 
 const ORDER=Object.keys(SH);
+// 릴스 1: 취업 축하 → 명부에 내 이름 (반전)
+sh('R1a','office',2.4,['nae@.5:cheer'],{s:'nae|저 취업했어요!!!',m:'bright',fx:[[.1,'boing']]});
+sh('R1b','office',3,['nae@.5:read+tablet desk'],{ov:'doc:myname',m:'none',fx:[[.2,'paper']]});
+sh('R1c','office',1.8,['nae@.5:shock desk'],{s:'nae|나… 네?',m:'tension',fx:[[0,'sting']],cam:'shake'});
+sh('R1d','void',2.4,[],{ov:'cd'});
+sh('R1e','office',2.4,['tae@.58:clap','nae@.42:shock+tablet'],{s:'tae|축하해! 실적 하나!',m:'comic'});
+sh('R1f','void',3,[],{ov:'fin',m:'bright',fx:[[1.6,'stamp']]});
+// 릴스 2: 저승관리청 입사기
+sh('R2a','room',2.8,['nae@.32:phone+phone'],{s:'hel|저승관리청입니다',m:'none',fx:[[.1,'ring']],ov:'call:저승관리청 채용 담당'});
+sh('R2b','funeral',2.6,['sim@.59:point desk','nae@.41:shock'],{s:'sim|…살아 있는 사람?',m:'eerie',fx:[[.1,'bell12'],[.3,'sting']]});
+sh('R2c','subway',2.2,['nae@.5:puzzle'],{s:'nae|4와 4분의 4번?',fx:[[.2,'train']]});
+sh('R2d','office',2.8,['nae@.5:read+paper'],{ov:'doc:contract',m:'comic',fx:[[.3,'paper']]});
+sh('R2e','office',1.8,['tae@.5:shout'],{s:'tae|퇴근해!!',cam:'shake',fx:[[0,'hit']]});
+sh('R2f','void',2.8,[],{ov:'fin',m:'bright',fx:[[1.6,'stamp']]});
 const V={
   v1:{label:'1분 티저',target:60,ids:['c0','r2','r4','f3','s1','e0','e8','e9','e10','d2','q3','w3','z4','fin']},
   v3:{label:'3분 메인 예고편',target:180,ids:['c0','c1','r1','r2','r3','r4','f1','f3','f4','f5','s1','m1','m3','m4','m6','m8','m9','e0','e3','e4','e5','e8','e9','e10','e11','d2','d4','d5','q1','q3','q4','q6','q8','j1','w1','w3','z4','z6','z7','cast','fin']},
-  v5:{label:'5분 확장판 예고편',target:300,ids:ORDER}
+  v5:{label:'5분 확장판 예고편',target:300,ids:ORDER},
+  r1:{label:'릴스 1 · 반전',target:15,vert:true,ids:['R1a','R1b','R1c','R1d','R1e','R1f']},
+  r2:{label:'릴스 2 · 저승 입사',target:15,vert:true,ids:['R2a','R2b','R2c','R2d','R2e','R2f']}
 };
 
 /* =========================================================
@@ -461,7 +500,7 @@ function pose(act,t,a){const P={y:Math.sin(t*2)*2,dx:0,la:[.15,.1],ra:[.15,.1],l
     case 'talk':P.ra=[.6+.3*S(t*4),-.3+.8*S(t*4+1)];P.mouth=S(t*14)>0?'o':'n';P.tilt=S(t*2)*.06;break;
     case 'listen':P.hy=S(t*3)*3;P.tilt=.05;break;
     case 'phone':P.ra=[2.0,2.9];P.mouth=S(t*12)>.2?'o':'n';P.tilt=.1;break;
-    case 'shock':P.la=P.ra=[2.1,2.95];P.dx=S(t*40)*5*Math.max(0,1-t/1.2);P.y-=26*Math.max(0,1-t*3);P.mouth='O';P.eyes='wide';P.sweat=1;break;
+    case 'shock':P.la=P.ra=[2.1,2.95];P.y-=26*Math.max(0,1-t*3);P.mouth='O';P.eyes='wide';P.sweat=1;break;
     case 'jump':P.y=-Math.abs(S(t*5))*80;P.la=P.ra=[2.7,3.0];P.mouth='D';P.eyes='happy';break;
     case 'cheer':P.la=P.ra=[2.7,2.95+.2*S(t*6)];P.mouth='D';P.eyes='happy';P.y=-Math.abs(S(t*4))*14;break;
     case 'stamp':{const p=t%1;const r=p<.5?ease(p/.5):p<.6?1-(p-.5)/.1:0;P.ra=[.6+1.4*r,.3+2.4*r];P.y+=p>.6&&p<.68?5:0;P.eyes=p>.55&&p<.75?'shut':'dot';break}
@@ -473,7 +512,7 @@ function pose(act,t,a){const P={y:Math.sin(t*2)*2,dx:0,la:[.15,.1],ra:[.15,.1],l
     case 'slump':P.hy=10;P.la=P.ra=[.05,.05];P.y=S(t*1.4)*1.5;P.mouth='f';P.eyes='sad';break;
     case 'panic':P.la=P.ra=[2.1,2.95];P.dx=S(t*5)*120;P.ll=S(t*15)*.5;P.rl=-P.ll;P.mouth='O';P.eyes='wide';P.sweat=1;P.y=-Math.abs(S(t*15))*10;break;
     case 'point':P.ra=[1.55,1.6];P.mouth=S(t*12)>0?'o':'n';break;
-    case 'shout':P.ra=[1.55,1.6];P.la=[.6,-1.9];P.mouth='O';P.eyes='angry';P.dx=S(t*50)*4*Math.max(0,1-t/1.5);break;
+    case 'shout':P.ra=[1.55,1.6];P.la=[.6,-1.9];P.mouth='O';P.eyes='angry';break;
     case 'count':P.ra=[1.9,2.8+.25*Math.abs(S(t*4))];P.mouth=S(t*12)>0?'o':'n';break;
     case 'beg':P.la=P.ra=[.45,-2.1];P.y+=S(t*6)*3;P.hy=3;P.eyes='wide';break;
     case 'clap':{const ph=(t/.45)%1;const k=Math.abs(Math.cos(ph*Math.PI));P.la=P.ra=[.45,-1.5-.6*k];P.mouth='D';P.eyes='happy';break}
@@ -496,7 +535,7 @@ function drawFig(a,t,d,face,bg){
   if(a.x2!==null){const p=clamp(t/(d*.7));px=lerp(a.x,a.x2,p);walking=p<1}
   const act=walking?'walk':a.act;const P=pose(act,t,a);if(face<0){const tmp=P.la;P.la=P.ra;P.ra=tmp}
   const sit=a.desk,K=1.3;const X=px*WW+P.dx,Y=FL+P.y*.7+(sit?30:0);
-  const jx=(rnd(FR*13+a.x*97)-.5)*9,jy=(rnd(FR*17+a.x*53)-.5)*5,jr=(rnd(FR*7+a.x*31)-.5)*.05;
+  const jx=(rnd(FR*13+a.x*97)-.5)*2,jy=(rnd(FR*17+a.x*53)-.5)*1,jr=(rnd(FR*7+a.x*31)-.5)*.01;
   c.save();c.translate(X+jx,Y+jy);
   if(!sit){if(C.live){c.fillStyle='rgba(0,0,0,.4)';c.beginPath();c.ellipse(0,4-P.y*.7,80,15,0,0,Math.PI*2);c.fill()}else glow(0,4-P.y*.7,100,'rgba(127,184,168,.25)')}
   c.rotate(jr);c.scale(K,K);
@@ -688,7 +727,7 @@ const st={v:'v1',shots:[],starts:[],total:60,t:0,prev:0,playing:false,idx:-1,upd
 const ov=$('ov'),fade=$('fade'),dirEl=$('dir'),subt=$('subt');
 function shotLabel(s){if(s.s){const [w,q]=s.s.split('|');return `${CH[w].n}: ${q}`}if(s.di)return `<em>(${s.di})</em>`;
   const o=s.ov||'';return o==='cast'?'출연진':o==='fin'?'타이틀':o==='cd'?'사망 예정 카운트다운':o.startsWith('imp:')?`[도장] ${o.slice(4)}`:o==='card'?s.card.join(' · '):''}
-function setVersion(k){st.v=k;st.shots=buildVersion(k);let a=0;st.starts=st.shots.map(s=>{const x=a;a+=s.d;return x});st.total=a;st.idx=-1;
+function setVersion(k){st.v=k;$('stage').classList.toggle('vert',!!V[k].vert);if(typeof applyU==='function')applyU();st.shots=buildVersion(k);let a=0;st.starts=st.shots.map(s=>{const x=a;a+=s.d;return x});st.total=a;st.idx=-1;
   document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===k));
   try{localStorage.setItem('jeoseung-v',k)}catch(e){}
   $('marks').innerHTML=st.starts.map(x=>`<i style="left:${x/a*100}%"></i>`).join('');
@@ -703,10 +742,10 @@ function enterShot(i){const s=st.shots[i];st.idx=i;ov.innerHTML='';$('flash').st
   document.querySelectorAll('#list button').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));
   A.setMood(s.m,st.playing)}
 function facing(a,list,t,d){if(a.x2!==null&&t<d*.7)return Math.sign(a.x2-a.x);let best=null,bd=9;list.forEach(o=>{if(o===a||o.who==='cat')return;const dx=o.x-a.x;if(Math.abs(dx)<bd){bd=Math.abs(dx);best=dx}});return best===null?0:Math.sign(best)}
-function drawStage(s,l,gt){c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,PW,PH);const sc=PW/WW;
-  let z=1+l/s.d*.03,fx=800,fy=470,sx=0,sy=0;const xs=s.actors.filter(a=>a.who!=='cat').map(a=>a.x);if(xs.length)fx=xs.reduce((p,q)=>p+q,0)/xs.length*WW;
-  if(s.cam==='in')z=1+ease(l/s.d)*.14;if(s.cam==='shake'){z=1.06;const k=Math.max(0,1-l/.9);sx=(Math.random()-.5)*26*k;sy=(Math.random()-.5)*26*k}
-  const cx0=lerp(800,fx,z>1.05?.6:.25);sx+=(rnd(FR*3)-.5)*7;sy+=(rnd(FR*3+1)-.5)*6;c.setTransform(sc*z,0,0,sc*z,PW/2-cx0*sc*z+sx*sc,PH/2-fy*sc*z+sy*sc);
+function drawStage(s,l,gt){c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,PW,PH);const vert=PH>PW;const sc=vert?PH/WH:PW/WW;
+  let z=1+l/s.d*.03,fx=800,fy=vert?450:470,sx=0,sy=0;const xs=s.actors.filter(a=>a.who!=='cat').map(a=>a.x);if(xs.length)fx=xs.reduce((p,q)=>p+q,0)/xs.length*WW;
+  if(s.cam==='in')z=1+ease(l/s.d)*.14;if(s.cam==='shake')z=1+ease(l/.35)*.1;
+  let cx0=lerp(800,fx,z>1.05?.6:.25);if(vert){const half=PW/(2*sc*z);cx0=clamp(fx,half,WW-half)}c.setTransform(sc*z,0,0,sc*z,PW/2-cx0*sc*z+sx*sc,PH/2-fy*sc*z+sy*sc);
   c.save();c.shadowColor='rgba(0,0,0,.35)';c.shadowOffsetX=4;c.shadowOffsetY=5;c.shadowBlur=2;(BG[s.bg]||BG.void)(gt);c.restore();
   const sorted=[...s.actors].sort((a,b)=>(a.desk?1:0)-(b.desk?1:0));sorted.forEach(a=>drawFig(a,l,s.d,facing(a,s.actors,l,s.d),s.bg));
   if(s.bg!=='room')drawMotes(gt);
@@ -714,10 +753,10 @@ function drawStage(s,l,gt){c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,PW,PH);co
   if(s.ov&&s.ov!=='tally'&&!s.ov.startsWith('call:')){c.setTransform(1,0,0,1,0,0);c.fillStyle=s.bg==='void'?'rgba(0,0,0,0)':'rgba(3,7,8,.55)';c.fillRect(0,0,PW,PH)}}
 function render(){const tr=Math.min(st.t,st.total-1e-4);const i=sceneAt(tr);const s=st.shots[i];if(i!==st.idx)enterShot(i);
   FR=Math.floor(tr*SFPS);const t=Math.max(st.starts[i],FR/SFPS);const l=t-st.starts[i];const lr=tr-st.starts[i];drawStage(s,l,t);st.upd(l);
-  const j=(k,a)=>(rnd(FR*11+k)-.5)*a;ov.style.transform=`translate(${j(1,.3)}em,${j(2,.3)}em) rotate(${j(3,.5)}deg)`;dirEl.style.rotate=`${-1.2+j(4,.8)}deg`;$('line').style.transform=`rotate(${(rnd(i*7)-.5)*2.4+j(5,.6)}deg) translate(${j(6,.15)}em,0)`;$('grain').style.transform=`translate(${j(7,40)}px,${j(8,40)}px)`;
+  const j=(k,a)=>(rnd(FR*11+k)-.5)*a;dirEl.style.rotate='-1.2deg';$('line').style.transform=`rotate(${(rnd(i*7)-.5)*2.4}deg)`;$('grain').style.transform=`translate(${j(7,40)}px,${j(8,40)}px)`;
   dirEl.style.opacity=s.di?clamp((l-.2)/.5)*clamp((s.d-l)/.4):0;
   subt.style.opacity=s.s?clamp((l-.35)/.35)*clamp((s.d-l)/.3):0;subt.style.transform=`translateY(${(1-ease((l-.35)/.4))*.8}em)`;
-  let o=0;if(l<.3)o=1-l/.3;if(s.d-l<.3&&i<st.shots.length-1)o=Math.max(o,1-(s.d-l)/.3);if(i===st.shots.length-1&&s.d-l<1)o=1-(s.d-l);fade.style.opacity=o;
+  let o=0;if(l<.3)o=1-l/.3;if(s.d-l<.3&&i<st.shots.length-1)o=Math.max(o,1-(s.d-l)/.3);const fe=V[st.v].vert?.4:1;if(i===st.shots.length-1&&s.d-l<fe)o=1-(s.d-l)/fe;fade.style.opacity=o;
   if(st.playing){const pl=st.prev-st.starts[i];s.fx.forEach(([at,n])=>{if(pl<at&&lr>=at)A.play(n)})}
   st.prev=tr;$('time').textContent=`${fmt(st.t)} / ${fmt(st.total)}`;if(!dragging)$('seek').value=Math.round(st.t/st.total*1000)}
 let last=0,dragging=false;
@@ -739,7 +778,8 @@ async function renderAudio(k){const shots=buildVersion(k);const total=shots.redu
   const u8=new Uint8Array(pcm.buffer);let bin='';for(let i=0;i<u8.length;i+=0x8000)bin+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(bin)}
 function renderFrame(k,t){if(st.v!==k){setVersion(k)}$('cover').hidden=true;seek(t);render()}
 const stage=$('stage');
-new ResizeObserver(()=>{const r=stage.getBoundingClientRect();stage.style.setProperty('--u',(r.width/100)+'px');DPR=Math.min(2,devicePixelRatio||1);PW=cv.width=Math.round(r.width*DPR);PH=cv.height=Math.round(r.height*DPR)}).observe(stage);
+function applyU(){const r=stage.getBoundingClientRect();stage.style.setProperty('--u',(r.width/(stage.classList.contains('vert')?56:100))+'px');return r}
+new ResizeObserver(()=>{const r=applyU();DPR=Math.min(2,devicePixelRatio||1);PW=cv.width=Math.round(r.width*DPR);PH=cv.height=Math.round(r.height*DPR)}).observe(stage);
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setVersion(b.dataset.v));
 $('play').onclick=toggle;stage.onclick=toggle;
 const sk=$('seek');sk.oninput=()=>{dragging=true;seek(sk.value/1000*st.total)};sk.onchange=()=>{dragging=false};
