@@ -39,3 +39,6 @@
 **영상을 만들거나 다시 만들기:** 저장소의 **Actions → 「영상 렌더 → Release」 → Run workflow**를 누르면 GitHub 서버에서 29개 영상(삼부작·인물 프리퀄 무성판/대사판, 예고편·릴스)을 병렬로 렌더링해 Release에 올립니다. 하나만 다시 만들 때는 입력칸에 `film main talk`, `teaser v1`처럼 적습니다.
 - 렌더 스크립트: `scripts/render.py`
 - 대사판 음성: `voices/*.mp3` (배우 녹음으로 같은 이름의 파일을 바꾸고 워크플로를 다시 실행하면 반영)
+
+## 한 페이지 구성
+`index.html` 한 페이지에 예고편·릴스 재생기, 흑백 애니메이션 재생기, 전체 다운로드가 모두 들어 있습니다. 흑백 재생기의 원본은 `film.html`이며, 고친 뒤 `python scripts/build_onepage.py`를 실행하면 `index.html`에 반영됩니다.
