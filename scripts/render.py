@@ -46,7 +46,7 @@ async def run():
       K=sys.argv[2];name=TEASER[K];W,H=(1080,1920) if K.startswith('r') else (1280,720)
       pg=await b.new_page(viewport={'width':W,'height':H})
       await pg.route('**/fonts.googleapis.com/**',lambda r:r.abort())
-      await pg.goto((ROOT/'index.html').as_uri());await pg.add_style_tag(content=css(W,H,True))
+      await pg.goto((ROOT/'teaser.html').as_uri());await pg.add_style_tag(content=css(W,H,True))
       await pg.evaluate("Promise.all([document.fonts.load('40px \"Black Han Sans\"'),document.fonts.load('800 40px \"Nanum Myeongjo\"'),document.fonts.load('40px \"Gowun Dodum\"')])");await pg.wait_for_timeout(1500)
       await pg.evaluate(f"renderFrame('{K}',0)");await pg.wait_for_timeout(400)
       total=await pg.evaluate("st.total");a=await pg.evaluate(f"renderAudio('{K}')")
