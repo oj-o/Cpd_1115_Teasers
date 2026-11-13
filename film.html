@@ -82,6 +82,8 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .sitenav a span{display:block;font-size:12px;opacity:.65;margin-top:2px}
 .sitenav a[aria-current="page"]{border-color:currentColor;background:rgba(255,255,255,.09)}
 .sitenav a:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.embed .sitenav,.embed .dl,.embed header .brand small{display:none}
+.embed body,body.embed{padding-block:0 8px}
 </style>
 </head>
 <body>
@@ -906,6 +908,8 @@ function frameAt(k,t,mode='silent'){if(st.k!==k||!st.film||st.mode!==mode)setFil
 
 function voiceEvents(k){return buildFilm(k,'talk').subs.map(u=>[u.t,u.id,u.who])}
 function allLines(){const out=[];for(const k in FILMS)FILMS[k].shots.forEach(s=>(s.say||[]).forEach(([t,who,text])=>out.push([vid(who,text),who,text])));return out}
+const EMBED=/[?&]embed\b/.test(location.search);
+if(EMBED){document.documentElement.classList.add('embed');document.body.classList.add('embed');const post=()=>{try{parent.postMessage({filmHeight:Math.ceil(document.querySelector('.wrap').getBoundingClientRect().bottom+window.scrollY+12)},'*')}catch(e){}};new ResizeObserver(post).observe(document.querySelector('.wrap'));document.querySelector('details.chars')?.addEventListener('toggle',post);addEventListener('load',post);setTimeout(post,300)}
 let start='main',smode='silent';try{const s=localStorage.getItem('jeoseung-film');if(FILMS[s])start=s;const m=localStorage.getItem('jeoseung-mode');if(m==='talk'||m==='silent')smode=m}catch(e){}
 setFilm(start,smode);requestAnimationFrame(loop);
 </script>

@@ -180,11 +180,23 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
 .sitenav a span{display:block;font-size:12px;opacity:.65;margin-top:2px}
 .sitenav a[aria-current="page"]{border-color:currentColor;background:rgba(255,255,255,.09)}
 .sitenav a:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.film,.alldl{max-width:1080px;margin:28px auto 0;display:flex;flex-direction:column;gap:14px}
+.sec{margin:0;font-family:var(--serif);font-weight:800;font-size:clamp(20px,3vw,26px);color:#ece6d4;border-top:1px solid var(--line);padding-top:22px;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.sec small{font-family:var(--ui);font-weight:400;font-size:13px;color:var(--mist-dim);letter-spacing:.06em}
+#filmframe{width:100%;height:1500px;border:0;display:block;background:#0c0c0c;border-radius:4px}
+.alldl .grp{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.alldl .grp span{width:100%;font-size:13px;letter-spacing:.12em;color:var(--mist-dim);margin-top:6px}
+.alldl a{color:var(--mist);text-decoration:none;border:1px solid #3d4f52;border-radius:4px;padding:12px 16px;font-size:16px;font-weight:700;display:block;min-width:150px;line-height:1.45;background:var(--ink-2)}
+.alldl a b{font-weight:400;color:var(--mist-dim);margin-right:6px}
+.alldl a small{display:block;font-size:12px;font-weight:400;color:var(--mist-dim)}
+.alldl a:hover{border-color:var(--jade)}
+.alldl a:focus-visible{outline:2px solid var(--jade);outline-offset:2px}
+html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
-<nav class="sitenav" aria-label="작품 메뉴"><a href="index.html" aria-current="page"><b>예고편 · 릴스</b><span>클레이 스톱모션 · 1분/3분/5분 · 릴스 15초 2편</span></a><a href="film.html"><b>흑백 애니메이션</b><span>본편 15분 · 프리퀄 · 시퀄 · 인물 프리퀄 9편 · 무성판/대사판</span></a></nav>
-<div class="wrap">
+<nav class="sitenav" aria-label="이 페이지 안 이동"><a href="#teasers"><b>예고편 · 릴스</b><span>클레이 스톱모션 · 1분/3분/5분 · 릴스 15초 2편</span></a><a href="#film"><b>흑백 애니메이션</b><span>본편 15분 · 프리퀄 · 시퀄 · 인물 프리퀄 9편 · 무성판/대사판</span></a><a href="#downloads"><b>다운로드</b><span>MP4 29편 · 시놉시스</span></a></nav>
+<div class="wrap" id="teasers">
   <header>
     <div class="brand"><small>연극시그 [큐프로덕션] · 강유선 작 · 11월 15일 서울 합정 서교생활문화센터</small><h1>저승공무원으로 취업했습니다!!!</h1></div>
     <div class="tabs" role="group" aria-label="예고편 길이">
@@ -220,23 +232,26 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
     <button id="fs">전체 화면</button>
   </div>
 
-  <section class="dl" aria-label="다운로드">
-    <h2>다운로드</h2>
-    <a href="film.html" target="_blank" rel="noopener">저승관리청 삼부작<small>흑백 애니메이션 · 본편 15분 · 프리퀄/시퀄 5분</small></a>
-    <a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/teaser_1min.mp4" target="_blank" rel="noopener">1분 티저<small>MP4 · 1280×720 · 소리 포함</small></a>
-    <a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/trailer_3min.mp4" target="_blank" rel="noopener">3분 메인 예고편<small>MP4 · 1280×720 · 소리 포함</small></a>
-    <a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/trailer_5min.mp4" target="_blank" rel="noopener">5분 확장판<small>MP4 · 1280×720 · 소리 포함</small></a>
-    <a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/reel1_15s.mp4" target="_blank" rel="noopener">릴스 1 · 반전<small>MP4 · 1080×1920 · 15초</small></a>
-    <a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/reel2_15s.mp4" target="_blank" rel="noopener">릴스 2 · 저승 입사<small>MP4 · 1080×1920 · 15초</small></a>
-    <a href="https://github.com/oj-o/Cpd_1115_Teasers/raw/main/index.html" target="_blank" rel="noopener">재생기 HTML<small>파일 하나로 오프라인 재생</small></a>
-  </section>
 
   <section class="scenes">
     <h2 id="sceneHead">컷 구성</h2>
     <ol id="list"></ol>
   </section>
-  <p class="note">버전 2026-11-12d · 화면 고정(흔들림 없음) · 공연 정보·출연 크레딧. 스페이스바 재생/일시정지, 좌우 화살표 5초 이동. 음악과 효과음(전화벨·발신음·종료음·방송음·도장·서류·발소리·박수)은 대본의 음향 큐에 맞춰 브라우저에서 실시간 합성됩니다. 위 다운로드 링크는 GitHub 저장소의 MP4 파일로 연결됩니다.</p>
+  <p class="note">버전 2026-11-12d · 화면 고정(흔들림 없음) · 공연 정보·출연 크레딧. 스페이스바 재생/일시정지, 좌우 화살표 5초 이동. 음악과 효과음(전화벨·발신음·종료음·방송음·도장·서류·발소리·박수)은 대본의 음향 큐에 맞춰 브라우저에서 실시간 합성됩니다. 다운로드는 페이지 맨 아래에 있습니다.</p>
 </div>
+
+<section class="film" id="film">
+  <h2 class="sec">흑백 애니메이션 <small>저승관리청 삼부작 · 인물 프리퀄 9편</small></h2>
+  <iframe id="filmframe" src="film.html?embed" title="흑백 애니메이션 재생기" allow="fullscreen; autoplay" loading="lazy"></iframe>
+</section>
+
+<section class="alldl" id="downloads" aria-label="다운로드">
+  <h2 class="sec">다운로드 <small>MP4 · GitHub Release</small></h2>
+  <div class="grp"><span>예고편 · 릴스 (클레이 스톱모션)</span><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/teaser_1min.mp4" target="_blank" rel="noopener"><b>↓</b>1분 티저<small>1280×720</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/trailer_3min.mp4" target="_blank" rel="noopener"><b>↓</b>3분 메인 예고편<small>1280×720</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/trailer_5min.mp4" target="_blank" rel="noopener"><b>↓</b>5분 확장판<small>1280×720</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/reel1_15s.mp4" target="_blank" rel="noopener"><b>↓</b>릴스 1 · 반전<small>1080×1920 · 15초</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/reel2_15s.mp4" target="_blank" rel="noopener"><b>↓</b>릴스 2 · 저승 입사<small>1080×1920 · 15초</small></a></div>
+  <div class="grp"><span>흑백 애니메이션 · 대사판 (음성·자막)</span><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/film_prequel_5min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>프리퀄 「444」<small>5분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/film_main_15min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>본편 「도장」<small>15분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/film_sequel_5min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>시퀄 「4444」<small>5분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_nae_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>유내일 「이력서 200통」<small>3분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_tae_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>임태린 「첫 결재」<small>3분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_mu_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>차무연 「출장」<small>3분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_sim_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>서심결 「면접관」<small>3분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_hel_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>닥터.헬(로) 「명부관」<small>3분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_wol_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>월헌 「초승달」<small>3분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_kim_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>김국어 「서리」<small>3분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_director_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>연출 「큐」<small>3분 · 대사판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_asm_3min_dialogue.mp4" target="_blank" rel="noopener"><b>↓</b>무대조연출 「암전」<small>3분 · 대사판</small></a></div>
+  <div class="grp"><span>흑백 애니메이션 · 무성판</span><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/film_prequel_5min.mp4" target="_blank" rel="noopener"><b>↓</b>프리퀄 「444」<small>5분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/film_main_15min.mp4" target="_blank" rel="noopener"><b>↓</b>본편 「도장」<small>15분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/film_sequel_5min.mp4" target="_blank" rel="noopener"><b>↓</b>시퀄 「4444」<small>5분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_nae_3min.mp4" target="_blank" rel="noopener"><b>↓</b>유내일 「이력서 200통」<small>3분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_tae_3min.mp4" target="_blank" rel="noopener"><b>↓</b>임태린 「첫 결재」<small>3분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_mu_3min.mp4" target="_blank" rel="noopener"><b>↓</b>차무연 「출장」<small>3분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_sim_3min.mp4" target="_blank" rel="noopener"><b>↓</b>서심결 「면접관」<small>3분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_hel_3min.mp4" target="_blank" rel="noopener"><b>↓</b>닥터.헬(로) 「명부관」<small>3분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_wol_3min.mp4" target="_blank" rel="noopener"><b>↓</b>월헌 「초승달」<small>3분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_kim_3min.mp4" target="_blank" rel="noopener"><b>↓</b>김국어 「서리」<small>3분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_director_3min.mp4" target="_blank" rel="noopener"><b>↓</b>연출 「큐」<small>3분 · 무성판</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/char_asm_3min.mp4" target="_blank" rel="noopener"><b>↓</b>무대조연출 「암전」<small>3분 · 무성판</small></a></div>
+  <div class="grp"><span>문서</span><a href="https://github.com/oj-o/Cpd_1115_Teasers/blob/main/SYNOPSIS.md" target="_blank" rel="noopener"><b>↓</b>시놉시스<small>SYNOPSIS.md</small></a><a href="https://github.com/oj-o/Cpd_1115_Teasers/releases/tag/media" target="_blank" rel="noopener"><b>↓</b>전체 목록<small>Release media</small></a></div>
+</section>
 
 <script>
 /* =========================================================
@@ -817,6 +832,9 @@ $('fs').onclick=()=>{const p=document.fullscreenElement?document.exitFullscreen(
 document.addEventListener('keydown',e=>{if(e.target.matches('input,button'))return;if(e.code==='Space'){e.preventDefault();toggle()}if(e.code==='ArrowRight')seek(st.t+5);if(e.code==='ArrowLeft')seek(st.t-5)});
 let start='v1';try{const s=localStorage.getItem('jeoseung-v');if(V[s])start=s}catch(e){}
 setVersion(start);requestAnimationFrame(loop);
+</script>
+<script>
+addEventListener('message',e=>{const h=e.data&&e.data.filmHeight;if(h)document.getElementById('filmframe').style.height=Math.ceil(h)+'px'});
 </script>
 </body>
 </html>
