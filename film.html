@@ -879,7 +879,7 @@ function toggle(){st.playing?pause():play()}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setFilm(b.dataset.k));
 document.querySelectorAll('.mode button').forEach(b=>b.onclick=()=>setFilm(st.k,b.dataset.mode));
 const VID={main:'film_main_15min',pre:'film_prequel_5min',seq:'film_sequel_5min',c_nae:'char_nae_3min',c_tae:'char_tae_3min',c_mu:'char_mu_3min',c_sim:'char_sim_3min',c_hel:'char_hel_3min',c_wol:'char_wol_3min',c_kim:'char_kim_3min',c_dir:'char_director_3min',c_asm:'char_asm_3min'};
-function renderDL(){const R='https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/';const el=$('dlrows');if(!el)return;const suf=st.mode==='talk'?'_dialogue':'';const lab=st.mode==='talk'?'대사판':'무성판';
+function renderDL(){const R='https://github.com/oj-o/Cpd_1115_Teasers/releases/download/media/';const el=$('dlrows');if(!el)return;const suf=st.mode==='talk'?'_dialogue':'';const lab=st.mode==='talk'?'대사판':'무성판';
   const ks=['pre','main','seq','c_nae','c_tae','c_mu','c_sim','c_hel','c_wol','c_kim','c_dir','c_asm'];const row=(sf,lb)=>`<span>${lb}</span>`+ks.map(k=>`<a href="${R}${VID[k]}${sf}.mp4" target="_blank" rel="noopener"><b>↓</b>${FILMS[k].title}<small>${Math.round(FILMS[k].target/60)}분 · ${lb}</small></a>`).join('');
   const order=st.mode==='talk'?[['_dialogue','대사판 (음성·자막)'],['','무성판']]:[['','무성판'],['_dialogue','대사판 (음성·자막)']];
   el.innerHTML=order.map(([a,b])=>row(a,b)).join('')+`<span>시놉시스</span><a href="https://github.com/oj-o/Cpd_1115_Teasers/blob/main/SYNOPSIS.md" target="_blank" rel="noopener"><b>↓</b>시놉시스<small>SYNOPSIS.md</small></a>`}

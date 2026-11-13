@@ -21,7 +21,7 @@
 
 ## 보기 · 다운로드
 - **웹에서 바로 재생**: https://oj-o.github.io/Cpd_1115_Teasers/
-- **영상 다운로드 (MP4, 1280×720, 소리 포함)**: [`videos/`](videos/) 폴더의 `teaser_1min.mp4`, `trailer_3min.mp4`, `trailer_5min.mp4`, 릴스용 세로 영상 `reel1_15s.mp4`, `reel2_15s.mp4` (1080×1920)
+- **영상 다운로드 (MP4)**: [Release `media`](https://github.com/oj-o/Cpd_1115_Teasers/releases/tag/media)의 첨부 파일 `teaser_1min.mp4`, `trailer_3min.mp4`, `trailer_5min.mp4`, 릴스용 세로 영상 `reel1_15s.mp4`, `reel2_15s.mp4` (1080×1920)
 
 ## 사용
 - 스페이스바 재생/일시정지, 좌우 화살표 5초 이동, 컷 목록 클릭으로 해당 장면 이동.
@@ -30,5 +30,12 @@
 대사와 자막 없이 행동, 빛, 추상 이미지로만 진행하는 예술영화풍 단편입니다. `film.html`에서 바로 재생됩니다.
 - 본편 「도장」 15분 · 프리퀄 「444」 5분 · 시퀄 「4444」 5분 · 인물 프리퀄 9편(연출·무대조연출 포함) 각 3분
 - 무성판 / 대사판(합성 음성 + 절제된 자막) 두 버전. 음성 파일은 `voices/`에 있으며 배우 녹음으로 교체 가능
-- 영상: `videos/film_*.mp4`, `videos/char_*_3min.mp4` (대사판은 파일명 끝에 `_dialogue`)
+- 영상: Release `media`의 `film_*.mp4`, `char_*_3min.mp4` (대사판은 파일명 끝에 `_dialogue`)
 - 시놉시스: [SYNOPSIS.md](SYNOPSIS.md)
+
+## 영상 파일은 저장소에 두지 않습니다
+렌더된 MP4는 커밋하지 않고 **Release `media`** 첨부 파일로만 배포합니다. 페이지의 다운로드 버튼은 모두 이 Release를 가리킵니다.
+
+**영상을 만들거나 다시 만들기:** 저장소의 **Actions → 「영상 렌더 → Release」 → Run workflow**를 누르면 GitHub 서버에서 29개 영상(삼부작·인물 프리퀄 무성판/대사판, 예고편·릴스)을 병렬로 렌더링해 Release에 올립니다. 하나만 다시 만들 때는 입력칸에 `film main talk`, `teaser v1`처럼 적습니다.
+- 렌더 스크립트: `scripts/render.py`
+- 대사판 음성: `voices/*.mp3` (배우 녹음으로 같은 이름의 파일을 바꾸고 워크플로를 다시 실행하면 반영)

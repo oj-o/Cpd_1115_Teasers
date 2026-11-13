@@ -1,0 +1,60 @@
+name: 영상 렌더 → Release
+
+# 저장소에는 영상(MP4)을 커밋하지 않습니다.
+# Actions 탭에서 이 워크플로를 실행하면 모든 영상을 GitHub 서버에서 렌더링해
+# Release 'media'의 첨부 파일로 올립니다. 페이지의 다운로드 링크는 이 Release를 가리킵니다.
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: '일부만 렌더 (예: "film main talk"). 비우면 전체'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Release 'media' 준비
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release view media >/dev/null 2>&1 || gh release create media --title "영상 파일 (MP4)" --notes "예고편 · 릴스 · 흑백 애니메이션 MP4. 저장소에는 영상이 없으며 이 Release 첨부 파일로만 배포합니다."
+      - id: m
+        run: |
+          if [ -n "${{ inputs.only }}" ]; then echo 'matrix=["${{ inputs.only }}"]' >> "$GITHUB_OUTPUT"; else echo 'matrix=["film main silent", "film main talk", "film pre silent", "film pre talk", "film seq silent", "film seq talk", "film c_nae silent", "film c_nae talk", "film c_tae silent", "film c_tae talk", "film c_mu silent", "film c_mu talk", "film c_sim silent", "film c_sim talk", "film c_hel silent", "film c_hel talk", "film c_wol silent", "film c_wol talk", "film c_kim silent", "film c_kim talk", "film c_dir silent", "film c_dir talk", "film c_asm silent", "film c_asm talk", "teaser v1", "teaser v3", "teaser v5", "teaser r1", "teaser r2"]' >> "$GITHUB_OUTPUT"; fi
+
+  render:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        job: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 도구 설치
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+          pip install -q playwright numpy
+          python -m playwright install --with-deps chromium
+      - name: 글꼴 받기
+        run: |
+          mkdir -p fonts && cd fonts
+          for f in ofl/blackhansans/BlackHanSans-Regular.ttf ofl/gowundodum/GowunDodum-Regular.ttf ofl/nanummyeongjo/NanumMyeongjo-Bold.ttf ofl/nanummyeongjo/NanumMyeongjo-ExtraBold.ttf; do curl -sSfLO "https://raw.githubusercontent.com/google/fonts/main/$f"; done
+      - name: 렌더
+        run: python scripts/render.py ${{ matrix.job }}
+      - name: Release에 올리기
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload media out/*.mp4 --clobber
