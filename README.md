@@ -25,3 +25,9 @@
 
 ## 사용
 - 스페이스바 재생/일시정지, 좌우 화살표 5초 이동, 컷 목록 클릭으로 해당 장면 이동.
+
+## 저승관리청 삼부작 (흑백 애니메이션)
+대사와 자막 없이 행동, 빛, 추상 이미지로만 진행하는 예술영화풍 단편입니다. `film.html`에서 바로 재생됩니다.
+- 본편 「도장」 15분 · 프리퀄 「444」 5분 · 시퀄 「4444」 5분
+- 영상: `videos/film_main_15min.mp4`, `videos/film_prequel_5min.mp4`, `videos/film_sequel_5min.mp4`
+- 시놉시스: [SYNOPSIS.md](SYNOPSIS.md)
