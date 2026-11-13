@@ -39,7 +39,8 @@ header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:fle
 .mode button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
 .mode button[aria-pressed="true"] small{color:#555}
 .dl .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;width:100%}
-.dl .row span{font-size:11px;letter-spacing:.14em;color:var(--dim);min-width:120px}
+.dl .row{gap:10px}
+.dl .row span{font-size:13px;letter-spacing:.14em;color:var(--dim);width:100%}
 details.chars{border-top:1px solid var(--line);padding-top:14px}
 details.chars summary{cursor:pointer;font-size:12px;letter-spacing:.2em;color:var(--dim)}
 details.chars .cols{margin-top:14px}
@@ -59,10 +60,13 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .track input{width:100%;margin:0;accent-color:#d8d4ca}
 .marks{position:absolute;left:0;right:0;top:3px;height:6px;pointer-events:none}
 .marks i{position:absolute;width:1px;height:6px;background:var(--line)}
-.dl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.dl{display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:20px;margin-top:8px}
 .dl h2,.syn h2{margin:0 12px 0 0;font-size:12px;letter-spacing:.2em;color:var(--dim);font-weight:400}
-.dl a{color:var(--paper);text-decoration:none;border:1px solid var(--line);padding:8px 12px;font-size:14px;display:flex;flex-direction:column;border-radius:2px}
-.dl a small{font-size:11px;color:var(--dim)}
+.dl h2{font-size:18px!important;letter-spacing:.12em!important;color:var(--paper)!important;font-family:var(--serif);font-weight:800!important}
+.dl a{color:var(--paper);text-decoration:none;border:1px solid #444;padding:12px 16px;font-size:16px;font-weight:700;display:block;border-radius:3px;min-width:150px;line-height:1.45}
+.dl a b{font-weight:400;color:var(--dim);margin-right:6px}
+.dl a small{display:block}
+.dl a small{font-size:12px;font-weight:400;color:var(--dim)}
 .dl a:hover{border-color:var(--paper)}
 .syn{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:12px}
 .syn .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
@@ -90,7 +94,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
     <button data-k="seq" aria-pressed="false"><b>시퀄 「4444」</b><span>5분</span></button>
   </div>
   <div class="tabs small" role="group" aria-label="인물 프리퀄">
-    <span class="grp">인물 프리퀄 · 각 3분</span>
+    <span class="grp">인물 프리퀄 · 9편 각 3분</span>
     <button data-k="c_nae" aria-pressed="false"><b>유내일</b><span>이력서 200통</span></button>
     <button data-k="c_tae" aria-pressed="false"><b>임태린</b><span>첫 결재</span></button>
     <button data-k="c_mu" aria-pressed="false"><b>차무연</b><span>출장</span></button>
@@ -98,6 +102,8 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
     <button data-k="c_hel" aria-pressed="false"><b>닥터.헬(로)</b><span>명부관</span></button>
     <button data-k="c_wol" aria-pressed="false"><b>월헌</b><span>초승달</span></button>
     <button data-k="c_kim" aria-pressed="false"><b>김국어</b><span>서리</span></button>
+    <button data-k="c_dir" aria-pressed="false"><b>연출</b><span>큐</span></button>
+    <button data-k="c_asm" aria-pressed="false"><b>무대조연출</b><span>암전</span></button>
   </div>
 
   <div class="screen" id="screen" aria-label="영상 화면. 클릭하면 재생 또는 일시정지">
@@ -113,10 +119,6 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
     <button id="fs">전체 화면</button>
   </div>
 
-  <section class="dl" aria-label="다운로드">
-    <h2>다운로드 (MP4 · 1280×720)</h2>
-    <div class="row" id="dlrows"></div>
-  </section>
 
   <section class="syn">
     <h2>시놉시스</h2>
@@ -133,7 +135,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
         <p>도장 하나를 누르기 전에 눈을 감는 습관이 생긴 그는 어느 밤 강가에서 감사팀장이 자기 등불을 물에 띄워 보내는 것을 지켜본다. 등불은 별이 된다. 그리고 다시 자정, 장례식장. 이제 면접관이 된 그 앞에 그림자가 있는 지원자가 앉는다.</p></article>
     </div>
   </section>
-  <details class="chars"><summary>인물 프리퀄 시놉시스 (7편 · 각 3분)</summary>
+  <details class="chars"><summary>인물 프리퀄 시놉시스 (9편 · 각 3분)</summary>
     <div class="cols">
       <article><h3>유내일 「이력서 200통」</h3><p>지원 동기 칸을 채우고, 반려견 뽀삐와 비 오는 길을 걷고, 문틈으로 들어오는 봉투를 줍는다. 점 이백 개가 하나씩 꺼지는 사이 도시의 창들도 꺼져 간다. 일할 수만 있다면 어디든 좋다고 생각한 밤, 어두운 방에서 전화기가 울린다.</p></article>
       <article><h3>임태린 「첫 결재」</h3><p>촛불이 꺼진 뒤 저승관리청에 들어온 신입이 첫 도장을 앞에 두고 오래 망설인다. 먹이 번지고, 명부의 점들이 누군가의 삶으로 피어난다. 세월이 흘러 울면서 일을 배우는 후배를 토닥이고, 실적 그래프 앞에서도 이름만은 끝까지 읽는 팀장이 된다.</p></article>
@@ -141,10 +143,16 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
       <article><h3>서심결 「면접관」</h3><p>자정의 장례식장에서 망자 지원자를 하나씩 맞이하는 면접관. 회의실의 공기를 한마디로 얼리고, 남은 월요일의 수를 셈한다. 그리고 어느 밤, 발밑에 그림자가 있는 지원자를 처음 만난다.</p></article>
       <article><h3>닥터.헬(로) 「명부관」</h3><p>울지 않았다고 우기던 신입은 이제 전화를 받는 인사담당자가 되었다. 인력은 바닥나고, 명부 속에서 살아 있는 지원자를 찾아낸다. 규정을 지켜 보류 도장을 내리면서도, 그 전화에는 조용한 바람을 담는다.</p></article>
       <article><h3>월헌 「초승달」</h3><p>붓으로 명부를 쓰던 시절, 자기 이름을 발견하고 숫자를 고쳐 쓴 신입. 444년 동안 강가에서 등불을 지켜보며 이승에 회사를 세우고, 저승관리청을 지탱해 왔다. 이제 그 등불을 다음 사람에게 건넬 때가 온다.</p></article>
+      <article><h3>연출 「큐」</h3><p>극장에는 밤마다 고스트 라이트 하나가 남는다. 처음 대본을 펼친 밤, 빈 무대 위로 아직 없는 사람들이 걸어 나온다. 수백 번의 리허설, 큐 1에서 큐 44까지. 저승에서는 도장을 찍고 극장에서는 큐를 부른다. 공연 전날 밤, 연출은 빈 객석을 향해 작게 인사한다.</p></article>
+      <article><h3>무대조연출 「암전」</h3><p>무대가 어두워지는 3초 동안 세계를 바꾸는 사람. 소품 하나, 의자 하나, 도장 하나를 제자리에 두고, 야광 테이프를 따라 배우를 이끈다. 저승사자가 망자를 이끌듯이. 커튼콜의 박수가 무대로 향할 때 무대 옆 어둠 속에서 같이 고개를 숙이고, 마지막으로 고스트 라이트를 켠다.</p></article>
       <article><h3>김국어 「서리」</h3><p>장부에서 전산으로 바뀌는 동안 같은 규칙을 가르쳐 온 선배. 분실 금지, 수정 금지. 야근이 끝나지 않는 밤마다 다음 생엔 고양이가 좋겠다고 생각한다. 인사 발령 종소리가 울리고, 그 소원은 이루어진다.</p></article>
     </div>
   </details>
-  <p class="note">대사판은 짧은 대사를 음성과 자막으로 더합니다(음성은 합성 음성이며, 배우 녹음 파일로 교체할 수 있습니다). 무성판은 대사와 자막 없이 행동, 빛, 추상 이미지로만 이야기를 전합니다. 인물들은 성별을 알 수 없는 둥근 캐릭터이며, 산 사람만 바닥에 그림자가 생깁니다. 음악과 효과음은 브라우저에서 실시간 합성됩니다. 스페이스바 재생/일시정지, 좌우 화살표 10초 이동.</p>
+  <p class="note">프리퀄·시퀄·인물 프리퀄에는 이야기를 이끄는 내레이션 자막이 화면 위쪽에 나옵니다. 대사판은 짧은 대사를 음성과 자막으로 더합니다(음성은 합성 음성이며, 배우 녹음 파일로 교체할 수 있습니다). 무성판은 대사와 자막 없이 행동, 빛, 추상 이미지로만 이야기를 전합니다. 인물들은 성별을 알 수 없는 둥근 캐릭터이며, 산 사람만 바닥에 그림자가 생깁니다. 음악과 효과음은 브라우저에서 실시간 합성됩니다. 스페이스바 재생/일시정지, 좌우 화살표 10초 이동.</p>
+  <section class="dl" aria-label="다운로드">
+    <h2>다운로드 (MP4 · 1280×720)</h2>
+    <div class="row" id="dlrows"></div>
+  </section>
 </div>
 
 <script>
@@ -186,6 +194,8 @@ const CHR={
   new:{n:'새 신입',live:1,acc:'none'},
   ghost:{n:'망자',acc:'none',pale:1},
   dog:{n:'뽀삐',acc:'dogears',live:1},
+  dir:{n:'연출',r:'큐프로덕션',a:'연출',acc:'beret',live:1,intro:'빈 무대에 아직 없는 사람들을 불러내는, 큐를 부르는 사람.'},
+  asm:{n:'무대조연출',r:'큐프로덕션',a:'무대조연출',acc:'torch',live:1,dark:1,intro:'암전 3초 동안 세계를 바꾸는, 보이지 않는 안내자.'},
   all:{n:'모두'},bcast:{n:'방송'}
 };
 function pose(act,t){const S=Math.sin;const P={sq:.018*S(t*1.7),by:0,la:.35,ra:.35,ll:0,rl:0,ex:0,ey:0,eyes:'dot',mouth:'n',tilt:0,tears:0,sweat:0,bow:0};
@@ -240,7 +250,7 @@ function blob(id,x,y,s,act,t,o={}){
   const arm=(side,a)=>{X.save();X.translate(side*bw*.78,-bh*.92);X.rotate(side*a);rr(-7,-2,14,24,7);X.fillStyle=PAPER;X.fill();X.lineWidth=3;X.strokeStyle=INK;X.stroke();X.restore()};
   arm(-1,P.la);arm(1,P.ra);
   X.beginPath();X.moveTo(-bw,-bh*.95);X.bezierCurveTo(-bw,-bh*2.15,bw,-bh*2.15,bw,-bh*.95);X.bezierCurveTo(bw*1.02,-bh*.15,bw*.7,0,0,0);X.bezierCurveTo(-bw*.7,0,-bw*1.02,-bh*.15,-bw,-bh*.95);X.closePath();
-  X.fillStyle=PAPER;X.fill();X.lineWidth=3.6;X.strokeStyle=INK;X.stroke();
+  X.fillStyle=C.dark?'#bdbdbd':PAPER;X.fill();X.lineWidth=3.6;X.strokeStyle=INK;X.stroke();
   // 얼굴
   const fy=-bh*1.05+P.ey+P.bow*10,fx=P.ex;
   X.fillStyle='rgba(120,120,120,.45)';ell(-27+fx,fy+12,8,5);X.fill();ell(27+fx,fy+12,8,5);X.fill();
@@ -263,10 +273,13 @@ function blob(id,x,y,s,act,t,o={}){
   if(C.acc==='glasses'){X.lineWidth=2.4;X.strokeStyle=INK;circ(-14+fx,fy,9);X.stroke();circ(14+fx,fy,9);X.stroke();line(-5+fx,fy,5+fx,fy,2.4,INK)}
   if(C.acc==='headset'){X.lineWidth=5;X.strokeStyle=INK;X.beginPath();X.arc(0,-bh*1.05,bw*.98,Math.PI*1.08,Math.PI*1.92);X.stroke();ell(-bw*.95,-bh*1.0,7,11);X.fillStyle=INK;X.fill();ell(bw*.95,-bh*1.0,7,11);X.fill();X.lineWidth=2.4;X.beginPath();X.moveTo(-bw*.95,-bh*.9);X.quadraticCurveTo(-bw*.7,-bh*.45,-18,-bh*.6);X.stroke();circ(-18,-bh*.6,3);X.fill()}
   if(C.acc==='moon'&&!o.nomoon){X.save();X.translate(0,top-26);glow(0,0,34,255,.18);X.fillStyle=PAPER;circ(0,0,12);X.fill();X.globalCompositeOperation='destination-out';circ(5,-3,10);X.fill();X.restore();X.lineWidth=5;X.strokeStyle='#d0d0d0';X.beginPath();X.moveTo(-bw*.9,-bh*.8);X.quadraticCurveTo(0,-bh*.45,bw*.9,-bh*.8);X.stroke()}
+  if(C.acc==='beret'){X.fillStyle=INK;X.strokeStyle='#9a9a9a';X.lineWidth=2;ell(-4,top+2,46,14,-.12);X.fill();X.stroke();line(-4,top-11,-2,top-20,3,'#9a9a9a')}
+  if(C.acc==='torch'){X.save();X.translate(bw*.85+10,-bh*.6);X.rotate(-.5);rr(-4,-18,8,22,3);X.fillStyle=INK;X.fill();X.strokeStyle='#9a9a9a';X.lineWidth=1.5;X.stroke();X.restore();X.globalAlpha=.5*X.globalAlpha;X.fillStyle='#fff';X.beginPath();X.moveTo(bw*.85+2,-bh*.75);X.lineTo(bw*.85+160,-bh*.2+60);X.lineTo(bw*.85+90,-bh*.2+110);X.closePath();const gr=X.createLinearGradient(bw,-bh,bw+160,40);gr.addColorStop(0,'rgba(255,255,255,.35)');gr.addColorStop(1,'rgba(255,255,255,0)');X.fillStyle=gr;X.fill();X.globalAlpha=al;
+    X.lineWidth=4;X.strokeStyle=INK;X.beginPath();X.arc(0,-bh*1.05,bw*.98,Math.PI*1.12,Math.PI*1.88);X.stroke()}
   if(C.acc==='dogears'){[-1,1].forEach(sd=>{X.save();X.translate(sd*bw*.82,top+24);X.rotate(sd*.35);ell(0,10,11,20);X.fillStyle='#bdbdbd';X.fill();X.lineWidth=3;X.strokeStyle=INK;X.stroke();X.restore()})}
   if(C.acc==='ears'){[-1,1].forEach(sd=>{X.beginPath();X.moveTo(sd*18,top+10);X.lineTo(sd*30,top-12);X.lineTo(sd*38,top+14);X.closePath();X.fillStyle=PAPER;X.fill();X.lineWidth=3;X.strokeStyle=INK;X.stroke()})}
   // 들고 있는 것
-  if(o.prop){const hx=bw*.85+12,hy=-bh*.55;X.save();X.translate(o.prop==='book'||o.prop==='paper'||o.prop==='scroll'||o.prop==='doc'?0:hx,o.prop==='book'||o.prop==='paper'||o.prop==='scroll'||o.prop==='doc'?-bh*.45:hy);prop(o.prop,t);X.restore()}
+  if(o.prop){const hx=bw*.85+12,hy=-bh*.55;X.save();X.translate(o.prop==='book'||o.prop==='paper'||o.prop==='scroll'||o.prop==='doc'?0:hx,o.prop==='scroll'?-bh*.12:o.prop==='book'||o.prop==='paper'||o.prop==='doc'?-bh*.45:hy);prop(o.prop,t);X.restore()}
   X.restore();X.restore()}
 function prop(p,t){X.lineWidth=2.4;X.strokeStyle=INK;
   if(p==='phone'){rr(-6,-34,12,22,3);X.fillStyle=INK;X.fill();X.fillStyle='#fff';X.fillRect(-4,-31,8,13)}
@@ -343,6 +356,22 @@ const BG={
     for(let i=0;i<9;i++){const x=80+i*130;X.fillStyle='#151413';X.fillRect(x,130,90,300);for(let k=0;k<5;k++){ell(x+45,160+k*56,30,10);X.fillStyle='#d9d6cf';X.fill();X.strokeStyle='#555';X.lineWidth=1;X.stroke()}}
     X.fillStyle='#1d1c1a';X.fillRect(0,120,W,8);
     glow(640,380,320,255,.12);X.fillStyle='#090908';X.fillRect(0,FLOOR,W,H);floorLines()},
+  theatre(t,S){X.fillStyle='#060606';X.fillRect(0,0,W,H);
+    // 프로시니엄 아치와 막
+    X.fillStyle='#141414';X.fillRect(0,TOP,W,40);for(let x=0;x<190;x+=24){const gr=X.createLinearGradient(x,0,x+24,0);gr.addColorStop(0,'#0c0c0c');gr.addColorStop(.5,'#1d1d1d');gr.addColorStop(1,'#0c0c0c');X.fillStyle=gr;X.fillRect(x,TOP,24,FLOOR-TOP);X.fillRect(W-x-24,TOP,24,FLOOR-TOP)}
+    for(let x=190;x<W-190;x+=30){X.fillStyle=ga(255,.02+.015*Math.sin(x*.2));X.fillRect(x,TOP+40,30,40)}
+    // 무대 바닥과 야광 테이프 표시
+    X.fillStyle='#101010';X.fillRect(0,FLOOR-6,W,H);for(let i=0;i<7;i++){const x=260+i*125;X.fillStyle=ga(255,S.lit===false?.5:.18);X.fillRect(x-10,FLOOR+18+(i%2)*14,20,4)}
+    // 객석 실루엣
+    for(let r=0;r<3;r++)for(let c=0;c<20;c++){X.fillStyle='#050505';ell(40+c*64+(r%2)*32,BOT-6-r*20,26,16);X.fill()}
+    // 고스트 라이트
+    if(S.ghost!==false){const gx=S.gx||640;line(gx,FLOOR,gx,FLOOR-150,4,'#2a2a2a');line(gx-30,FLOOR,gx+30,FLOOR,4,'#2a2a2a');const f=1+Math.sin(t*7)*.03;glow(gx,FLOOR-160,320,255,.2*f);circ(gx,FLOOR-160,9);X.fillStyle='#fff';X.fill();X.strokeStyle='#444';X.lineWidth=2;X.beginPath();for(let k=0;k<6;k++){X.moveTo(gx-12+k*5,FLOOR-170);X.lineTo(gx-12+k*5,FLOOR-150)}X.stroke()}
+    if(S.wash){const gr=X.createRadialGradient(640,FLOOR-80,40,640,FLOOR-80,520);gr.addColorStop(0,ga(255,.2));gr.addColorStop(1,ga(255,0));X.fillStyle=gr;X.fillRect(0,0,W,H)}
+    if(S.lit===false){X.fillStyle='rgba(0,0,0,.72)';X.fillRect(0,0,W,H)}},
+  backstage(t,S){X.fillStyle='#070707';X.fillRect(0,0,W,H);for(let i=0;i<14;i++){const x=80+i*86;line(x,TOP,x,TOP+200+rnd(i)*160,1.5,ga(255,.12));X.fillStyle='#1a1a1a';X.fillRect(x-4,TOP+200+rnd(i)*160,8,16)}
+    X.fillStyle='#111';X.fillRect(820,FLOOR-70,300,12);X.fillStyle='#0c0c0c';X.fillRect(830,FLOOR-58,280,58);X.fillStyle='#cfcfcf';X.fillRect(850,FLOOR-84,46,14);X.fillRect(920,FLOOR-80,40,10);X.fillStyle='#111';rr(990,FLOOR-96,14,26,4);X.fill();X.fillRect(984,FLOOR-74,26,6);
+    const cl=Math.floor(t*1.2)%2;circ(150,TOP+80,10);X.fillStyle=cl?'#ddd':'#333';X.fill();glow(150,TOP+80,40,255,cl?.3:0);
+    X.fillStyle='#0a0a0a';X.fillRect(0,FLOOR,W,H);for(let i=0;i<9;i++){X.fillStyle=ga(255,.45);X.fillRect(120+i*120,FLOOR+24+(i%3)*10,16,4)}},
   mansion(t,S){X.fillStyle='#0e0e0e';X.fillRect(0,0,W,H);for(let i=0;i<6;i++){X.fillStyle='#161616';X.fillRect(80+i*200,140,150,FLOOR-140);for(let k=0;k<6;k++){for(let b=0;b<8;b++){X.fillStyle=g(30+((i*7+k*3+b)%5)*12);X.fillRect(90+i*200+b*17,152+k*66,13,52)}}}
     const gr=X.createRadialGradient(640,200,20,640,300,520);gr.addColorStop(0,ga(255,.12));gr.addColorStop(1,ga(255,0));X.fillStyle=gr;X.fillRect(0,0,W,H);
     X.fillStyle='#080808';X.fillRect(0,FLOOR,W,H);floorLines()}
@@ -422,6 +451,9 @@ const ART={
   numbers(t,S){const p=t/S.d;const seq=['4','44','444','4444'];const i=Math.min(3,Math.floor(p*4.2));const lp=(p*4.2)%1;X.fillStyle='rgba(0,0,0,.55)';X.fillRect(0,0,W,H);txt(seq[i],640,330,170,ga(255,.85*ease(lp/.25)*(i===3?1:ease((1-lp)/.2))),'"Nanum Myeongjo"',800,'center',18)},
   stars(t,S){X.fillStyle='#030303';X.fillRect(0,0,W,H);const p=t/S.d;for(let i=0;i<180;i++){const x=rnd(i)*W,y=TOP+rnd(i+9)*(BOT-TOP),a=ease((p-rnd(i+3)*.6)/.2);circ(x,y,.6+rnd(i+6)*1.6);X.fillStyle=ga(255,.7*a*(0.7+0.3*Math.sin(t*2+i)));X.fill()}if(S.digits)txt('4444',640,360,150,ga(255,.85*(1-ease(p/.6))),'"Nanum Myeongjo"',800,'center',20)},
   lanternStar(t,S){BG.river(t,S);const p=t/S.d;const x=lerp(560,700,p),y=lerp(FLOOR-20,TOP+60,easeO(clamp((p-.15)/.75)));glow(x,y,70,255,.5);circ(x,y,lerp(10,3,p));X.fillStyle='#fff';X.fill()},
+  glowtape(t,S){X.fillStyle='#020202';X.fillRect(0,0,W,H);for(let i=0;i<30;i++){const x=120+(i%10)*110+rnd(i)*30,y=FLOOR-120+Math.floor(i/10)*70;const a=ease((t-rnd(i+4)*S.d*.6)/1.2);X.save();X.translate(x,y);X.rotate((rnd(i+8)-.5)*.6);X.fillStyle=ga(220,.65*a);X.fillRect(-14,-2,28,5);glow(0,0,26,255,.12*a);X.restore()}},
+  cueLights(t,S){X.fillStyle='#030303';X.fillRect(0,0,W,H);const n=Math.min(44,Math.floor(t/S.d*48)+1);for(let i=0;i<44;i++){const x=150+(i%11)*90,y=TOP+80+Math.floor(i/11)*90,on=i<n,cur=i===n-1;circ(x,y,cur?14:9);X.fillStyle=on?(cur?'#fff':ga(255,.35)):ga(255,.07);X.fill();if(cur)glow(x,y,60,255,.35);txt('Q'+(i+1),x,y+28,12,ga(255,on?.5:.12),'"Gowun Dodum"',400)}},
+  scriptPages(t,S){X.fillStyle='#050505';X.fillRect(0,0,W,H);const p=t/S.d;for(let i=0;i<5;i++){const k=clamp(p*5-i);const ang=lerp(0,-Math.PI*.9,ease(k));X.save();X.translate(640,380);X.scale(Math.cos(ang),1);X.fillStyle=g(225-i*6);X.fillRect(0,-160,230,320);for(let l=0;l<12;l++){X.fillStyle=ga(40,.5);X.fillRect(24,-130+l*22,120+rnd(i*20+l)*70,3)}if(i===2){X.fillStyle='rgba(0,0,0,.18)';X.fillRect(20,-42,180,14)}X.restore()}X.fillStyle=g(205);X.fillRect(410,220,230,320);X.save();X.translate(640,380);txt('저승공무원으로 취업했습니다!!!',-115,-120,13,'#333','"Nanum Myeongjo"',800);X.restore()},
   bars(t,S){X.fillStyle='#050505';X.fillRect(0,0,W,H);const vals=[.9,.8,.66,.5,.34,.18];vals.forEach((v,i)=>{const h=v*300*(1-ease((t/S.d-.3-i*.05)/.5)*.5);X.fillStyle=ga(255,i===5?.85:.35);X.fillRect(300+i*120,BOT-60-h,70,h)});line(260,BOT-58,1020,BOT-58,2,ga(255,.4))},
   timelapse(t,S){const p=t/S.d;const era=Math.min(3,Math.floor(p*4));X.fillStyle='#0d0d0d';X.fillRect(0,0,W,H);const sun=(Math.sin(t*2.2)+1)/2;X.fillStyle=ga(255,.03+.08*sun);X.fillRect(0,0,W,H);
     for(let i=0;i<7;i++){const x=150+i*150,y=FLOOR-70;X.fillStyle='#161616';X.fillRect(x-60,y,120,70);
@@ -576,6 +608,7 @@ const SAY={
 };
 for(const k in SAY)for(const i in SAY[k])FILMS[k].shots[+i].say=SAY[k][i];
 
+
 /* ---------- 인물 프리퀄 (각 3분) ---------- */
 const opener=(name,sub)=>[sc(8,{art:'logo',m:'silence',fx:[[.6,'bell']],tr:'white'}),sc(8,{special:titleCard,title:name,sub})];
 const closer=(id,act)=>[sc(8,{special:actorCard,who:id,act,tr:'cut'}),sc(8,{special:staffCard,lines:[['작','강유선'],['제작','연극시그 [큐프로덕션]'],['공연','11월 15일 (일)',24],['','서울 합정 · 서교생활문화센터',20]]})];
@@ -645,6 +678,45 @@ FILMS.c_kim={title:'김국어 「서리」',target:180,shots:[...opener('김국�
   sc(14,{bg:'mansion',post:(t,S)=>catSleep(640,FLOOR-10,t),m:'piano',fx:[[6,'meow']]}),
   ...closer('kim','wave')]};
 
+const NAR={
+ pre:{1:[[2,'지금으로부터 444년 전.'],[9,'저승의 명부는 아직 붓으로 쓰였다.']],2:[[3,'갓 들어온 신입 하나가 망자들의 이름을 받아 적고 있었다.']],3:[[1,'그날, 두루마리 끝에서'],[5,'신입은 자기 이름을 보았다.']],4:[[.5,'남은 시간은 촛불 하나만큼.']],
+  7:[[1,'붓끝이 떨렸다.'],[9,'그리고 한 획이 숫자를 바꾸었다.']],8:[[3,'그날 이후, 그의 머리 위에는 초승달이 떴다.']],9:[[2,'두루마리는 장부가 되고,'],[12,'장부는 모니터가 되었다.'],[24,'초승달만은 그대로였다.']],
+  10:[[1,'세월은 새 신입들을 데려왔다.']],11:[[2,'강을 건너는 이들을 이끄는 사자,']],12:[[2,'끝없이 도장을 찍는 선배.']],13:[[2,'그리고 어느 해, 일할 사람이 모자라기 시작했다.']],14:[[1,'인사과의 수화기가 들렸다.']],15:[[1,'이승의 어느 어두운 방.']]},
+ seq:{1:[[3,'4,444년. 그것은 약속이 되었다.']],2:[[1,'신입은 이제 신입을 가르친다.']],3:[[2,'재벌가 서재의 하얀 고양이는 오늘도 존다.']],4:[[1,'도장을 누르기 전, 눈을 감는 습관이 생겼다.']],5:[[2,'노조는… 아직 결성 중이다.']],
+  6:[[2,'창밖의 도시는 몇 번이고 새로 지어졌다.'],[16,'사무실은 그대로였다.']],7:[[2,'이름은 숫자가 아니라 삶.'],[14,'그래서 하나씩, 천천히.']],8:[[2,'어느 밤, 감사팀장이 강가로 불렀다.'],[27,'444년 만의 작별이었다.']],9:[[3,'등불은 별이 되었다.']],
+  10:[[1,'다시, 자정. 큐프 장례식장.'],[21,'지원자의 발밑에, 그림자가 있었다.']],11:[[10,'저승관리청은 오늘도 정상 영업합니다.']]},
+ c_nae:{2:[[1,'취업 준비 N년 차, 유내일.']],3:[[2,'이력서 200통. 연락은 0통.']],4:[[1,'곁에는 언제나 뽀삐가 있었다.']],5:[[2,'봉투는 늘 같은 소식을 가져왔다.']],6:[[1,'그래도 포기하는 법은 몰랐다.']],7:[[2,'도시의 불이 하나씩 꺼지던 밤.']],8:[[1,'전화가 울렸다. 발신자, 저승관리청.']],9:[[4,'그것이 모든 일의 시작이었다.']]},
+ c_tae:{2:[[1,'임태린도 한때는 신입이었다.']],3:[[.5,'처음 받은 명부, 처음 쥔 도장.']],4:[[1,'쾅.']],5:[[1,'그날 알았다. 점 하나가 한 사람의 삶이라는 걸.']],6:[[.5,'몇 년 뒤, 울면서 일을 배우는 후배가 들어왔다.']],7:[[2,'그렇게 팀장이 되었다.']],8:[[.5,'실적은 줄고, 사람은 모자랐다.']],9:[[2,'그래도 이름만은, 끝까지 읽는다.']]},
+ c_mu:{2:[[.5,'삼도천의 안내자, 차무연.']],3:[[2,'사고는 예고 없이 온다.']],4:[[.5,'그럴 때면 배낭을 멘다.']],5:[[2,'겁먹은 이들의 곁을 끝까지 걷는다.']],6:[[.5,'그리고… 출장비는 중요하다.']],7:[[.5,'밤이 되면 꿈을 꾼다. 저승 최초의 노동조합.']],8:[[2,'오늘도 출장 중.']]},
+ c_sim:{2:[[.5,'자정마다 면접을 보는 사람, 서심결.']],3:[[1,'면접은 언제나 밤 12시.']],4:[[.5,'농담은… 늘 조금 늦게 도착한다.']],5:[[5,'남은 월요일을 세는 것이 취미.']],6:[[1,'그리고 그날 밤, 처음 보는 지원자가 왔다.'],[13,'발밑에 그림자가 있는.']],7:[[1,'저승행 승강장은 4와 4분의 4번.']]},
+ c_hel:{2:[[.5,'닥터.헬(로)의 신입 시절.']],3:[[.5,'인사과로 옮기고 생긴 첫 번째 습관.'],[11,'"헬로"는 고치는 중이다.']],4:[[1,'사람이 없다.']],5:[[1,'지원자 명단을 넘기다 멈췄다.']],6:[[.5,'회의는 길어졌다.']],7:[[1,'규정은 규정.']],8:[[1,'그래도 그 전화에는, 바람을 담았다.']]},
+ c_wol:{2:[[2,'444년 전, 붓의 시대.']],3:[[.5,'신입 서기, 월헌.']],4:[[.5,'두루마리 끝, 자기 이름.']],5:[[.5,'단 한 번의 수정.']],6:[[1,'그 뒤로 444년, 강가의 등불을 세었다.']],7:[[6,'이승에는 회사를 세웠다. 월급이 밀리지 않도록.']],8:[[.5,'감사팀장이 들어서면 모두가 일어난다.']],9:[[1,'이제 그 이야기를 건넬 사람을 만났다.']]},
+ c_kim:{2:[[.5,'신입 교육 담당, 김국어.']],3:[[.5,'장부에서 전산으로. 규칙은 그대로.']],4:[[.5,'야근은 끝나지 않았다.']],5:[[.5,'마지막 신입, 유내일.']],6:[[.5,'가끔 꿈을 꾼다.']],7:[[5,'인사 발령의 날.']],8:[[2,'다음 생은, 재벌가 고양이.']]}
+};
+
+/* ---------- 연출 · 무대조연출 프리퀄 (대본 밖 이야기) ---------- */
+FILMS.c_dir={title:'연출 「큐」',target:180,shots:[...opener('연출','인물 프리퀄 「큐」'),
+  sc(18,{bg:'theatre',a:[A_('dir',1.08,[[0,'walk'],[10,'look']],{x2:.38,mv:[0,10],prop:'scroll'})],m:'eerie',steps:1,nar:[[1,'극장에는 밤마다 전구 하나가 남는다.'],[9,'무대를 지키는 불, 고스트 라이트.']]}),
+  sc(14,{art:'scriptPages',m:'piano',fx:[[2,'paper'],[5,'paper'],[8,'paper']],nar:[[1,'처음 그 대본을 펼친 밤.'],[7,'이력서 200통, 저승관리청, 도장 하나.']]}),
+  sc(20,{bg:'theatre',a:[A_('dir',.3,[[0,'idle'],[8,'point']]),A_('ghost',.55,'idle',{alpha:.5}),A_('ghost',.68,'idle',{alpha:.4}),A_('ghost',.81,'idle',{alpha:.35})],m:'eerie',nar:[[2,'빈 무대 위로, 아직 없는 사람들이 걸어 나왔다.']],say:[[12,'dir','여기서… 도장 소리.']]}),
+  sc(8,{art:'inkBloom',m:'warm',fx:[[.4,'stamp']]}),
+  sc(20,{bg:'theatre',ghost:false,wash:1,a:[A_('dir',.24,[[0,'point'],[10,'nod']],{prop:'scroll'}),A_('nae',.5,[[0,'idle'],[9,'walk'],[12,'smile']],{x2:.56,mv:[9,12]}),A_('tae',.74,'stamp')],m:'warm',nar:[[1,'몇 주 동안 같은 장면을 수백 번.']],say:[[7,'dir','한 발 더 앞으로. 그림자가 보이게.'],[14,'nae','이렇게요?']]}),
+  sc(16,{art:'cueLights',m:'pulse',nar:[[1,'큐 1에서 큐 44까지.'],[7,'저승에서는 도장을 찍고, 극장에서는 큐를 부른다.']],say:[[13,'dir','스탠바이… 큐.']]}),
+  sc(18,{bg:'theatre',a:[A_('dir',.42,[[0,'slump'],[9,'bow']])],m:'piano',nar:[[2,'공연 전날 밤.'],[8,'연출은 빈 객석을 향해 작게 인사했다.']],say:[[14,'dir','내일, 잘 부탁해.']]}),
+  sc(16,{bg:'theatre',ghost:false,wash:1,a:[A_('hel',.2,'bowhold'),A_('sim',.32,'bowhold'),A_('kim',.44,'bowhold'),A_('nae',.56,'bowhold'),A_('tae',.68,'bowhold'),A_('wol',.8,'bowhold'),A_('mu',.92,'bowhold')],m:'warm',fx:[[2,'applause']],nar:[[2,'11월 15일, 서교생활문화센터.'],[9,'막이 오른다.']]}),
+  ...closer('dir','nod')]};
+FILMS.c_asm={title:'무대조연출 「암전」',target:180,shots:[...opener('무대조연출','인물 프리퀄 「암전」'),
+  sc(14,{art:'glowtape',m:'silence',nar:[[1,'무대가 어두워지는 3초.'],[7,'그 사이에 일하는 사람이 있다.']]}),
+  sc(20,{bg:'backstage',a:[A_('asm',.2,[[0,'walk'],[9,'look'],[13,'nod']],{x2:.58,mv:[0,9]})],m:'office',steps:1,nar:[[2,'소품 하나, 의자 하나, 도장 하나.'],[10,'제자리에 없으면 이야기가 넘어진다.']],say:[[14,'asm','도장 확인. 명부 확인.']]}),
+  sc(16,{bg:'theatre',ghost:false,lit:false,a:[A_('asm',.2,'walk',{x2:.7,mv:[2,12]})],m:'silence',steps:1,nar:[[2,'암전.'],[7,'관객이 어둠 속에 있는 동안, 세계를 바꾼다.']]}),
+  sc(14,{bg:'river',a:[A_('mu',.25,'walk',{x2:.6,mv:[0,13]}),A_('ghost',.12,'walk',{x2:.47,mv:[0,13],alpha:.4})],m:'river',steps:1,nar:[[1,'저승사자가 망자를 이끌듯,'],[7,'조연출은 어둠 속에서 배우를 이끈다.']]}),
+  sc(18,{bg:'backstage',a:[A_('asm',.3,[[0,'wave'],[8,'idle']]),A_('nae',.62,[[0,'shock'],[6,'walk'],[12,'smile']],{x2:.48,mv:[6,12]})],m:'office',say:[[3,'asm','이쪽, 야광 테이프 따라오세요.'],[9,'nae','안 보여요…!'],[13,'asm','괜찮아요. 제가 보고 있어요.']]}),
+  sc(14,{art:'cueLights',m:'pulse',nar:[[1,'헤드셋 너머로 들려오는 연출의 큐.']],say:[[6,'dir','암전 스탠바이.'],[10,'asm','스탠바이.']]}),
+  sc(18,{bg:'theatre',ghost:false,wash:1,a:[A_('nae',.36,'bowhold'),A_('tae',.5,'bowhold'),A_('wol',.64,'bowhold'),A_('asm',.94,[[0,'idle'],[9,'bowhold']],{alpha:.7})],m:'warm',fx:[[1,'applause']],nar:[[2,'박수는 무대 위로 향하고,'],[9,'조연출은 무대 옆 어둠 속에서 같이 고개를 숙인다.']]}),
+  sc(14,{bg:'theatre',a:[A_('asm',.5,[[0,'idle'],[6,'wave'],[10,'walk']],{x2:1.1,mv:[10,14]})],m:'piano',nar:[[1,'마지막으로 고스트 라이트를 켜고.'],[8,'내일 또.']],say:[[6,'asm','수고하셨습니다.']]}),
+  ...closer('asm','wave')]};
+for(const k in NAR)for(const i in NAR[k])FILMS[k].shots[+i].nar=NAR[k][i];
+
 function catSleep(x,y,t){X.save();X.translate(x,y);glow(0,-30,180,255,.08);X.fillStyle='#2a2a2a';ell(0,6,130,16);X.fill();X.fillStyle=PAPER;X.lineWidth=3;X.strokeStyle=INK;ell(0,-26,70,34+Math.sin(t*1.2)*2);X.fill();X.stroke();circ(-56,-44,24);X.fill();X.stroke();
   [[-70,-62],[-44,-64]].forEach(([ex,ey])=>{X.beginPath();X.moveTo(ex-8,ey+6);X.lineTo(ex,ey-12);X.lineTo(ex+8,ey+6);X.fill();X.stroke()});X.beginPath();X.arc(-64,-44,4,.2,Math.PI-.2);X.stroke();X.beginPath();X.arc(-50,-44,4,.2,Math.PI-.2);X.stroke();
   X.beginPath();X.moveTo(64,-20);X.quadraticCurveTo(110,-10+Math.sin(t)*6,90,10);X.stroke();for(let i=0;i<3;i++){const k=((t*.4+i/3)%1);circ(-30+k*20,-80-k*60,3+k*3);X.strokeStyle=ga(255,.5*(1-k));X.lineWidth=1.5;X.stroke()}X.restore()}
@@ -685,10 +757,11 @@ function drawShot(S,t,T){X.save();
 const MOODS={ // 지속 레이어 레벨
   silence:{}, rain:{rain:.16}, office:{drone:.035}, eerie:{drone:.05,wind:.05}, pulse:{drone:.03}, piano:{}, warm:{pad:1}, train:{rumble:.12}, tension:{drone:.05,trem:.012}, river:{river:.09,pad:1}
 };
-function buildFilm(k,mode='silent'){const F=FILMS[k];const subs=[];const base=F.shots.reduce((a,s)=>a+s.d,0);const f=F.target/base;let t0=0,mood='silence';const shots=[],ev=[];
+function buildFilm(k,mode='silent'){const F=FILMS[k];const subs=[],nars=[];const base=F.shots.reduce((a,s)=>a+s.d,0);const f=F.target/base;let t0=0,mood='silence';const shots=[],ev=[];
   F.shots.forEach((s0,i)=>{const s={...s0,d:s0.d*f,t0};if(s.m)mood=s.m;s.mood=mood;shots.push(s);const d=s.d;
     ev.push({t:t0,type:'mood',m:mood});
     (s.fx||[]).forEach(([tt,n])=>ev.push({t:t0+tt*f,type:'sfx',n}));
+    if(s0.nar)s0.nar.forEach(([tt,text],j)=>{const st2=t0+tt*f;const nx=s0.nar[j+1];let end=st2+Math.max(3.2,text.length*.14+1.8);if(nx)end=Math.min(end,t0+nx[0]*f-.2);end=Math.min(end,t0+d-.3);nars.push({t:st2,end,text})});
     if(mode==='talk'&&s0.say)s0.say.forEach(([tt,who,text])=>{const id=vid(who,text);const dur=VOICE_DUR[id]||(text.length*.16+.6);const st2=t0+tt*f;ev.push({t:st2,type:'voice',id,who});subs.push({t:st2,end:st2+dur,show:st2+Math.max(dur+.5,1.8),who,text,id})});
     // 행동 기반 효과음
     (s.a||[]).forEach(a=>{a.acts.forEach(([tt,act],j)=>{const end=j<a.acts.length-1?a.acts[j+1][0]:s0.d;
@@ -708,10 +781,10 @@ function buildFilm(k,mode='silent'){const F=FILMS[k];const subs=[];const base=F.
     if(m==='tension')for(let x=0;x<d;x+=.5)ev.push({t:t0+x,type:'sfx',n:'pulse'});
     if(m==='eerie')for(let x=4;x<d;x+=9)ev.push({t:t0+x,type:'sfx',n:'bellsoft'});
     t0+=d});
-  ev.sort((a,b)=>a.t-b.t);return {shots,ev,subs,total:t0,mode}}
+  ev.sort((a,b)=>a.t-b.t);return {shots,ev,subs,nars,total:t0,mode}}
 
 /* 음성: voices/<id>.mp3 (합성 음성, 배우 녹음으로 교체 가능) */
-const VOICE_DUR={"nae_1qeuaf2": 2.57, "kim_jz2861": 2.39, "wol_fsoc4d": 6.15, "hel_9lhd4j": 0.61, "sim_13m926b": 1.27, "nae_gkbo4f": 2.93, "tae_1pz2pq3": 2.02, "wol_1ivero": 2.93, "nae_1swvghj": 3.0, "tae_89vexu": 1.54, "tae_uudc0y": 2.16, "tae_1iy3iu9": 1.37, "kim_13zidnd": 1.68, "hel_1bedohq": 2.46, "all_129u9ds": 1.3, "nae_zyjrc1": 1.88, "nae_1rmd9xf": 1.23, "mu_s5smzy": 2.84, "hel_lz5gjf": 2.13, "kim_22omd7": 2.68, "hel_kbgmt4": 1.76, "nae_1ftftp1": 4.73, "kim_gh0akp": 2.1, "nae_89t5v1": 4.37, "mu_1fm9zjk": 1.88, "sim_egmiim": 2.51, "nae_1te8ij4": 2.25, "nae_gf6uut": 2.29, "sim_14v30z6": 2.53, "hel_1bvgykn": 3.2, "sim_njrt7i": 1.47, "sim_2pio57": 3.88, "tae_f1qw0z": 2.46, "hel_6qlo4n": 1.84, "nae_1gnnpyp": 2.81, "tae_j1x5fh": 2.33, "wol_3oh7r3": 4.58, "nae_5t50e7": 1.24, "kim_7an7eo": 1.99, "tae_yxxuhq": 2.28, "nae_cw9rku": 2.62, "nae_187xemd": 3.1, "nae_1ty6lbq": 2.16, "nae_a1pcbi": 0.95, "nae_1vjnzef": 1.86, "nae_1hneghf": 0.77, "tae_1f7any3": 1.46, "nae_138y1xb": 1.22, "hel_lxu7po": 3.05, "sim_11m04l1": 4.72, "wol_1fejked": 2.67, "sim_9fxhd0": 2.89, "tae_11bb4mq": 0.99, "sim_wdjk9t": 4.2, "sim_fq618p": 1.66, "wol_1fuzv5n": 5.87, "nae_1erv374": 1.18, "mu_1wjbhk7": 2.7, "nae_jogbkn": 0.94, "nae_1c7uefz": 2.17, "hel_9kz6ws": 0.59, "nae_1xfmgfp": 2.57, "tae_552gr2": 1.64, "nae_q13c3v": 1.28, "tae_1e0ooxi": 1.5, "mu_1aa8dhd": 1.85, "nae_194bbtn": 1.79, "bcast_182k4oo": 2.54, "wol_19bey1x": 2.48, "hel_o9vjqm": 0.74, "hel_tw0f6m": 1.95, "hel_yt2b7m": 2.87, "kim_cwvfo5": 2.8, "mu_1mqhwa5": 3.0, "wol_1shy1uz": 3.39, "sim_195p5pa": 3.79, "nae_l4f7ho": 1.37, "mu_sfr5rk": 1.09, "kim_krphy": 1.35, "wol_n9c877": 1.58, "nae_dzi29y": 1.64, "hel_f6wtjj": 3.12, "hel_15m8hvp": 3.85, "mu_y3bl9z": 2.83, "tae_1ozc56v": 1.78, "wol_18k05md": 5.42, "hel_7c6xie": 2.8, "mu_1ih7dk3": 1.82, "nae_q05w46": 1.04, "tae_1nwf90m": 3.39, "sim_1kornz5": 4.27, "nae_qfv46n": 2.99, "tae_h0djvi": 1.42, "tae_zybgv3": 2.25, "kim_c4oxwc": 5.92, "tae_e9py00": 1.24, "sim_1w1eh60": 1.44, "sim_11k0t3t": 4.69, "wol_js0n4j": 2.87, "wol_1sma519": 5.3, "nae_1jpcyli": 2.11, "wol_csaz73": 1.26};
+const VOICE_DUR={"nae_1qeuaf2": 2.57, "kim_jz2861": 2.39, "wol_fsoc4d": 6.15, "hel_9lhd4j": 0.61, "sim_13m926b": 1.27, "nae_gkbo4f": 2.93, "tae_1pz2pq3": 2.02, "wol_1ivero": 2.93, "nae_1swvghj": 3.0, "tae_89vexu": 1.54, "tae_uudc0y": 2.16, "tae_1iy3iu9": 1.37, "kim_13zidnd": 1.68, "hel_1bedohq": 2.46, "all_129u9ds": 1.3, "nae_zyjrc1": 1.88, "nae_1rmd9xf": 1.23, "mu_s5smzy": 2.84, "hel_lz5gjf": 2.13, "asm_wl2b64": 0.94, "kim_22omd7": 2.68, "hel_kbgmt4": 1.76, "nae_1ftftp1": 4.73, "kim_gh0akp": 2.1, "nae_89t5v1": 4.37, "nae_5yevvr": 0.95, "mu_1fm9zjk": 1.88, "sim_egmiim": 2.51, "asm_shh9ll": 1.57, "nae_1te8ij4": 2.25, "nae_gf6uut": 2.29, "sim_14v30z6": 2.53, "hel_1bvgykn": 3.2, "sim_njrt7i": 1.47, "sim_2pio57": 3.88, "tae_f1qw0z": 2.46, "hel_6qlo4n": 1.84, "nae_1gnnpyp": 2.81, "tae_j1x5fh": 2.33, "wol_3oh7r3": 4.58, "asm_1wa58f8": 2.53, "nae_5t50e7": 1.24, "kim_7an7eo": 1.99, "tae_yxxuhq": 2.28, "nae_cw9rku": 2.62, "nae_187xemd": 3.1, "nae_1ty6lbq": 2.16, "dir_16pk0yc": 3.39, "nae_a1pcbi": 0.95, "nae_1vjnzef": 1.86, "nae_1hneghf": 0.77, "tae_1f7any3": 1.46, "nae_138y1xb": 1.22, "hel_lxu7po": 3.05, "sim_11m04l1": 4.72, "wol_1fejked": 2.67, "sim_9fxhd0": 2.89, "tae_11bb4mq": 0.99, "sim_wdjk9t": 4.2, "sim_fq618p": 1.66, "wol_1fuzv5n": 5.87, "nae_1erv374": 1.18, "mu_1wjbhk7": 2.7, "nae_jogbkn": 0.94, "nae_1c7uefz": 2.17, "hel_9kz6ws": 0.59, "nae_1xfmgfp": 2.57, "tae_552gr2": 1.64, "nae_q13c3v": 1.28, "dir_1u573rj": 2.05, "tae_1e0ooxi": 1.5, "mu_1aa8dhd": 1.85, "nae_194bbtn": 1.79, "bcast_182k4oo": 2.54, "wol_19bey1x": 2.48, "hel_o9vjqm": 0.74, "hel_tw0f6m": 1.95, "asm_1jthr08": 2.5, "hel_yt2b7m": 2.87, "kim_cwvfo5": 2.8, "mu_1mqhwa5": 3.0, "wol_1shy1uz": 3.39, "sim_195p5pa": 3.79, "nae_15yjei8": 1.19, "nae_l4f7ho": 1.37, "mu_sfr5rk": 1.09, "kim_krphy": 1.35, "wol_n9c877": 1.58, "nae_dzi29y": 1.64, "hel_f6wtjj": 3.12, "hel_15m8hvp": 3.85, "mu_y3bl9z": 2.83, "dir_qmsxne": 1.75, "tae_1ozc56v": 1.78, "wol_18k05md": 5.42, "hel_7c6xie": 2.8, "mu_1ih7dk3": 1.82, "nae_q05w46": 1.04, "tae_1nwf90m": 3.39, "asm_qwg1uq": 2.34, "sim_1kornz5": 4.27, "nae_qfv46n": 2.99, "tae_h0djvi": 1.42, "tae_zybgv3": 2.25, "kim_c4oxwc": 5.92, "dir_1q9qvuk": 1.51, "tae_e9py00": 1.24, "sim_1w1eh60": 1.44, "sim_11k0t3t": 4.69, "wol_js0n4j": 2.87, "wol_1sma519": 5.3, "nae_1jpcyli": 2.11, "wol_csaz73": 1.26, "dir_dqzuzl": 2.05};
 function vid(who,text){let h=5381;const s=who+'|'+text;for(let i=0;i<s.length;i++)h=((h*33)^s.charCodeAt(i))>>>0;return who+'_'+h.toString(36)}
 const VBUF={};
 function loadVoices(F){if(!AU.ctx)return;F.ev.filter(e=>e.type==='voice').forEach(e=>{if(VBUF[e.id]!==undefined)return;VBUF[e.id]=null;const x=new XMLHttpRequest();x.open('GET','voices/'+e.id+'.mp3');x.responseType='arraybuffer';x.onload=()=>{if(x.status===200||x.status===0&&x.response&&x.response.byteLength)AU.ctx.decodeAudioData(x.response).then(b=>VBUF[e.id]=b).catch(()=>{})};x.onerror=()=>{};x.send()})}
@@ -762,6 +835,7 @@ const AU={ctx:null,on:true,
     case 'whoosh':this.noise(t,2.2,.08,'bandpass',300,1.5,2400);break;
     case 'train':this.noise(t,4,.14,'bandpass',160,1,1400);for(let i=0;i<10;i++)this.noise(t+.5+i*.32,.07,.08,'lowpass',380);break;
     case 'chime':[72,76,79,84].forEach((k,i)=>this.osc('triangle',m(k),t+i*.35,.07,1.8));break;
+    case 'applause':for(let i=0;i<300;i++)this.noise(t+Math.random()*3.2,.03,.03+Math.random()*.04,'bandpass',1100+Math.random()*1800,.9);break;
     case 'cricket':for(let g2=0;g2<3;g2++)for(let p2=0;p2<3;p2++)this.osc('sine',4400,t+g2*.6+p2*.06,.03,.035);break;
     case 'coin':this.osc('square',m(88),t,.03,.08);this.osc('square',m(93),t+.08,.03,.3);break;
     case 'meow':{const o=this.ctx.createOscillator();o.type='sawtooth';o.frequency.setValueAtTime(520,t);o.frequency.linearRampToValueAtTime(820,t+.22);o.frequency.linearRampToValueAtTime(470,t+.7);const fl=this.ctx.createBiquadFilter();fl.type='bandpass';fl.frequency.value=1100;fl.Q.value=3;o.connect(fl);this.env(fl,t,.18,.05,.7);o.start(t);o.stop(t+.85);break}
@@ -786,6 +860,8 @@ function draw(){const F=st.film,t=Math.min(st.t,F.total-1e-3),i=shotAt(t),S=F.sh
   if(tr!=='cut'&&lt<fin)a=1-lt/fin;const ntr=nx?(nx.tr||'fade'):'fade';if(ntr!=='cut'&&S.d-lt<.9)a=Math.max(a,1-(S.d-lt)/.9);if(!nx&&S.d-lt<1.5)a=Math.max(a,1-(S.d-lt)/1.5);
   if(tr==='white'||(nx&&nx.tr==='white'&&S.d-lt<.9))col='243,242,238';
   if(a>0){X.fillStyle=`rgba(${col},${a})`;X.fillRect(0,LB,W,H-LB*2)}
+  // 내레이션: 위쪽 레터박스 (모든 버전)
+  for(const u of F.nars){if(t>=u.t&&t<u.end){const k=Math.min(clamp((t-u.t)/.6),clamp((u.end-t)/.6));txt(u.text,640,LB/2+2,20,ga(205,k),'"Nanum Myeongjo"',700,'center',1)}}
   // 자막: 아래 레터박스 안에 한 줄만, 작게
   if(F.mode==='talk'){let cur=null;for(const u of F.subs){if(t>=u.t&&t<u.show)cur=u}if(cur){const k=Math.min(clamp((t-cur.t)/.25),clamp((cur.show-t)/.3));const nm=(CHR[cur.who]||{}).n||'';
     txt(cur.text,640,H-LB/2+4,23,ga(232,k),'"Nanum Myeongjo"',700);if(nm)txt(nm,640,H-LB+16,12,ga(130,k),'"Gowun Dodum"',400,'center',3)}}
@@ -802,9 +878,11 @@ function seek(t){st.t=clamp(t,0,st.film.total);syncCursor()}
 function toggle(){st.playing?pause():play()}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setFilm(b.dataset.k));
 document.querySelectorAll('.mode button').forEach(b=>b.onclick=()=>setFilm(st.k,b.dataset.mode));
-const VID={main:'film_main_15min',pre:'film_prequel_5min',seq:'film_sequel_5min',c_nae:'char_nae_3min',c_tae:'char_tae_3min',c_mu:'char_mu_3min',c_sim:'char_sim_3min',c_hel:'char_hel_3min',c_wol:'char_wol_3min',c_kim:'char_kim_3min'};
+const VID={main:'film_main_15min',pre:'film_prequel_5min',seq:'film_sequel_5min',c_nae:'char_nae_3min',c_tae:'char_tae_3min',c_mu:'char_mu_3min',c_sim:'char_sim_3min',c_hel:'char_hel_3min',c_wol:'char_wol_3min',c_kim:'char_kim_3min',c_dir:'char_director_3min',c_asm:'char_asm_3min'};
 function renderDL(){const R='https://github.com/oj-o/Cpd_1115_Teasers/raw/main/videos/';const el=$('dlrows');if(!el)return;const suf=st.mode==='talk'?'_dialogue':'';const lab=st.mode==='talk'?'대사판':'무성판';
-  el.innerHTML=`<span>${lab}</span>`+['pre','main','seq','c_nae','c_tae','c_mu','c_sim','c_hel','c_wol','c_kim'].map(k=>`<a href="${R}${VID[k]}${suf}.mp4" target="_blank" rel="noopener">${FILMS[k].title}<small>${Math.round(FILMS[k].target/60)}분 · ${lab}</small></a>`).join('')+`<a href="https://github.com/oj-o/Cpd_1115_Teasers/blob/main/SYNOPSIS.md" target="_blank" rel="noopener">시놉시스<small>SYNOPSIS.md</small></a>`}
+  const ks=['pre','main','seq','c_nae','c_tae','c_mu','c_sim','c_hel','c_wol','c_kim','c_dir','c_asm'];const row=(sf,lb)=>`<span>${lb}</span>`+ks.map(k=>`<a href="${R}${VID[k]}${sf}.mp4" target="_blank" rel="noopener"><b>↓</b>${FILMS[k].title}<small>${Math.round(FILMS[k].target/60)}분 · ${lb}</small></a>`).join('');
+  const order=st.mode==='talk'?[['_dialogue','대사판 (음성·자막)'],['','무성판']]:[['','무성판'],['_dialogue','대사판 (음성·자막)']];
+  el.innerHTML=order.map(([a,b])=>row(a,b)).join('')+`<span>시놉시스</span><a href="https://github.com/oj-o/Cpd_1115_Teasers/blob/main/SYNOPSIS.md" target="_blank" rel="noopener"><b>↓</b>시놉시스<small>SYNOPSIS.md</small></a>`}
 $('play').onclick=toggle;$('screen').onclick=toggle;
 $('seek').oninput=e=>{dragging=true;seek(e.target.value/1000*st.film.total)};$('seek').onchange=()=>{dragging=false};
 $('snd').onclick=()=>{AU.on=!AU.on;$('snd').textContent=AU.on?'소리 켜짐':'소리 꺼짐';$('snd').setAttribute('aria-pressed',AU.on);if(AU.on&&AU.init()){AU.ctx.resume();syncCursor()}else if(AU.ctx)AU.silenceLayers(AU.ctx.currentTime)};
