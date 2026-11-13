@@ -174,9 +174,16 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-o
 .vert .fin .stamp{right:-1em;top:-8em}
 .vert .call{top:19%;right:1.4em}
 @media (prefers-reduced-motion:reduce){.grain{display:none}}
+.sitenav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto 18px;max-width:1080px}
+.sitenav a{flex:1 1 240px;display:block;text-decoration:none;color:inherit;border:1px solid #3a3a3a;border-radius:4px;padding:12px 16px;background:rgba(255,255,255,.03)}
+.sitenav a b{display:block;font-size:17px;letter-spacing:.02em}
+.sitenav a span{display:block;font-size:12px;opacity:.65;margin-top:2px}
+.sitenav a[aria-current="page"]{border-color:currentColor;background:rgba(255,255,255,.09)}
+.sitenav a:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 </style>
 </head>
 <body>
+<nav class="sitenav" aria-label="작품 메뉴"><a href="index.html" aria-current="page"><b>예고편 · 릴스</b><span>클레이 스톱모션 · 1분/3분/5분 · 릴스 15초 2편</span></a><a href="film.html"><b>흑백 애니메이션</b><span>본편 15분 · 프리퀄 · 시퀄 · 인물 프리퀄 9편 · 무성판/대사판</span></a></nav>
 <div class="wrap">
   <header>
     <div class="brand"><small>연극시그 [큐프로덕션] · 강유선 작 · 11월 15일 서울 합정 서교생활문화센터</small><h1>저승공무원으로 취업했습니다!!!</h1></div>
